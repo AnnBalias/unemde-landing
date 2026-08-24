@@ -1,0 +1,52 @@
+---
+import FaqItem from "../components/FaqItem.astro";
+import Layout from "../layouts/Layout.astro";
+import { btnPrimary, chip, kickerLight, lead, pageHero, pageHeroTitle, section, wrap } from "../lib/ui";
+
+const questions = [
+  { cat: "general", q: "faq.q1", a: "faq.a1" },
+  { cat: "general", q: "faq.q2", a: "faq.a2" },
+  { cat: "general", q: "faq.q3", a: "faq.a3" },
+  { cat: "deals", q: "faq.q4", a: "faq.a4" },
+  { cat: "deals", q: "faq.q5", a: "faq.a5" },
+  { cat: "deals", q: "faq.q6", a: "faq.a6" },
+  { cat: "deals", q: "faq.q7", a: "faq.a7" },
+  { cat: "account", q: "faq.q8", a: "faq.a8" },
+  { cat: "account", q: "faq.q9", a: "faq.a9" },
+  { cat: "account", q: "faq.q10", a: "faq.a10" },
+  { cat: "partners", q: "faq.q11", a: "faq.a11" },
+  { cat: "partners", q: "faq.q12", a: "faq.a12" },
+  { cat: "partners", q: "faq.q13", a: "faq.a13" },
+] as const;
+---
+
+<Layout page="faq">
+  <section class={pageHero}>
+    <div class={wrap}>
+      <p class={kickerLight} data-i18n="faq.kicker">FAQ</p>
+      <h1 class={pageHeroTitle} data-i18n="faq.title">Frequently Asked Questions</h1>
+      <p class={lead} data-i18n="faq.sub"></p>
+    </div>
+  </section>
+
+  <section class={section}>
+    <div class={`${wrap} max-w-[760px]`}>
+      <div class="mt-6 mb-4 flex flex-wrap gap-2" data-aos="fade-up">
+        <button type="button" class={chip} data-faq-filter="all" aria-pressed="true" data-i18n="faq.all"></button>
+        <button type="button" class={chip} data-faq-filter="general" aria-pressed="false" data-i18n="faq.general"></button>
+        <button type="button" class={chip} data-faq-filter="deals" aria-pressed="false" data-i18n="faq.deals"></button>
+        <button type="button" class={chip} data-faq-filter="account" aria-pressed="false" data-i18n="faq.account"></button>
+        <button type="button" class={chip} data-faq-filter="partners" aria-pressed="false" data-i18n="faq.partners"></button>
+      </div>
+      <div data-aos="fade-up">
+        {questions.map((item) => <FaqItem q={item.q} a={item.a} cat={item.cat} />)}
+      </div>
+      <p class="my-4 text-dark-gray" id="faqEmpty" hidden data-i18n="faq.empty"></p>
+      <div class="mt-8 rounded-[20px] border border-border bg-bg-soft p-6" data-aos="fade-up">
+        <h3 class="text-[22px] font-bold" data-i18n="faq.moreTitle"></h3>
+        <p class="mt-2 mb-4 text-dark-gray" data-i18n="faq.moreSub"></p>
+        <a class={btnPrimary} href="/partner" data-i18n="faq.moreCta"></a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  q: string;
+  a: string;
+  open?: boolean;
+  cat?: string;
+}
+
+const { q, a, open = false, cat } = Astro.props;
+---
+
+<article class="group mb-2.5 overflow-hidden rounded-[16px] border border-border bg-white shadow-card" data-faq-item data-cat={cat} data-open={open || undefined}>
+  <button
+    class="flex w-full items-center justify-between gap-3 px-[18px] py-4 text-left text-base font-bold text-text"
+    type="button"
+  >
+    <span data-i18n={q}></span>
+    <i
+      class="grid size-7 shrink-0 place-items-center rounded-full bg-blue-soft font-bold text-blue-dark not-italic transition-transform duration-200 group-data-[open]:rotate-45 group-data-[open]:bg-brand group-data-[open]:text-white"
+      >+</i
+    >
+  </button>
+  <p class="hidden px-[18px] pb-4 text-sm leading-[21px] text-dark-gray group-data-[open]:block" data-i18n={a}></p>
+</article>

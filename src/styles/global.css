@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/Sofia Pro Regular Az.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/Sofia Pro Medium Az.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/Sofia Pro Semi Bold Az.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/Sofia Pro Bold Az.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Sofia Pro", "Segoe UI", sans-serif;
+  --color-blue-dark: #1f3053;
+  --color-blue-mid: #314b82;
+  --color-blue-light: #456bb9;
+  --color-blue-link: #4d81e7;
+  --color-blue-soft: rgb(70 107 185 / 0.08);
+  --color-text: #0a2533;
+  --color-gray: #9e9e9e;
+  --color-dark-gray: #6c7278;
+  --color-muted: #748189;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f6f8fb;
+  --color-border: #eeeeee;
+  --color-green: #34c759;
+  --color-green-dark: #004515;
+  --color-green-light: #359752;
+  --shadow-card: 0 2px 16px 0 rgb(6 51 54 / 0.1);
+  --shadow-float: 0 18px 50px rgb(31 48 83 / 0.18);
+  --radius-btn: 26px;
+  --radius-card: 16px;
+  --radius-pill: 40px;
+  --breakpoint-nav: 61.25rem;
+  --background-image-brand: linear-gradient(90deg, var(--color-blue-dark) 0%, var(--color-blue-light) 100%);
+  --background-image-green-grad: linear-gradient(90deg, var(--color-green-dark) 0%, var(--color-green-light) 100%);
+  --background-image-app-alt: linear-gradient(180deg, #1f3053 0%, #314b82 100%);
+  --animate-float-a: float-a 5.2s ease-in-out infinite;
+  --animate-float-b: float-b 5.6s ease-in-out infinite;
+}
+
+@keyframes float-a {
+  0%,
+  100% {
+    transform: rotate(-6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-6deg) translateY(-14px);
+  }
+}
+
+@keyframes float-b {
+  0%,
+  100% {
+    transform: rotate(8deg) translateY(0);
+  }
+  50% {
+    transform: rotate(8deg) translateY(-10px);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    min-width: 320px;
+    scrollbar-gutter: stable;
+  }
+
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.18s;
+    animation-timing-function: ease;
+  }
+
+  ::view-transition-group(site-nav) {
+    z-index: 100;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.5;
+    min-width: 320px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    @view-transition {
+      navigation: none;
+    }
+  }
+}

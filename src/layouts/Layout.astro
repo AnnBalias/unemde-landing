@@ -1,0 +1,39 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { PAGE_META, type PageId } from "../i18n/config";
+import "../styles/global.css";
+
+interface Props {
+  page: PageId;
+}
+
+const { page } = Astro.props;
+const meta = PAGE_META[page];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UNEMDE</title>
+    <meta name="description" content="UNEMDE local deals" />
+    <link rel="icon" href="/icon.png" />
+    <meta name="theme-color" content="#1F3053" />
+    <ClientRouter />
+  </head>
+  <body data-page={page} data-title-key={meta.titleKey} data-desc-key={meta.descKey}>
+    <div class="mx-auto w-full min-w-[320px] max-w-[1440px]">
+      <Header page={page} />
+      <main>
+        <slot />
+      </main>
+      <Footer page={page} />
+    </div>
+    <script>
+      import "../scripts/app.ts";
+    </script>
+  </body>
+</html>

@@ -23,14 +23,10 @@
     "lang": "Language"
   },
   "hero": {
-    "eyebrow": "UNEMDE · guests and venues",
-    "title": "Deals nearby. Book. Activate in 30 minutes.",
-    "lead": "UNEMDE is a mobile marketplace for local café and restaurant deals. Guests find a venue on the map, book a slot, and redeem on-site. Venues manage offers and scan QR codes in UNEMDE Business.",
+    "title": "Discover the best offers around you with UNEMDE",
+    "lead": "Find discounts, partner places, and exclusive deals in cafés, restaurants, beauty, sport, and more — all in one mobile app.",
     "ctaGuest": "I’m a guest",
     "ctaBiz": "I’m a venue",
-    "m1": "Map and list of venues",
-    "m2": "QR or swipe at the counter",
-    "m3": "30-minute activation window",
     "shotGuest": "UNEMDE — Discover",
     "shotBiz": "UNEMDE Business — Scanner"
   },
