@@ -1,5 +1,6 @@
 ---
 import FaqItem from "../components/FaqItem.astro";
+import HowJourney from "../components/HowJourney.astro";
 import PhoneShot from "../components/PhoneShot.astro";
 import Layout from "../layouts/Layout.astro";
 import {
@@ -26,9 +27,6 @@ import {
   sectionCta,
   sectionNavy,
   sectionSoft,
-  step,
-  stepNum,
-  steps,
   sub,
   subOnNavy,
   wrap,
@@ -56,36 +54,11 @@ import {
     </div>
   </section>
 
-  <section class={section}>
-    <div class={wrap}>
-      <p class={kicker} data-aos="fade-up" data-i18n="how.kicker">How it works</p>
-      <h2 class={h2} data-aos="fade-up" data-i18n="how.title">Four steps from deal to table</h2>
-      <p class={sub} data-aos="fade-up" data-i18n="how.sub">
-        One flow for guests and venues: find an offer, book a time, activate on-site, and get the discount.
-      </p>
-      <div class={steps}>
-        <article class={step} data-aos="fade-up">
-          <div class={stepNum}>1</div>
-          <h3 class="mt-4 text-lg" data-i18n="how.s1t">Discover</h3>
-          <p class="mt-2 text-sm leading-5 text-dark-gray" data-i18n="how.s1p"></p>
-        </article>
-        <article class={step} data-aos="fade-up" data-aos-delay="80">
-          <div class={stepNum}>2</div>
-          <h3 class="mt-4 text-lg" data-i18n="how.s2t">Book</h3>
-          <p class="mt-2 text-sm leading-5 text-dark-gray" data-i18n="how.s2p"></p>
-        </article>
-        <article class={step} data-aos="fade-up" data-aos-delay="160">
-          <div class={stepNum}>3</div>
-          <h3 class="mt-4 text-lg" data-i18n="how.s3t">Activate</h3>
-          <p class="mt-2 text-sm leading-5 text-dark-gray" data-i18n="how.s3p"></p>
-        </article>
-        <article class={step} data-aos="fade-up" data-aos-delay="240">
-          <div class={stepNum}>4</div>
-          <h3 class="mt-4 text-lg" data-i18n="how.s4t">Enjoy</h3>
-          <p class="mt-2 text-sm leading-5 text-dark-gray" data-i18n="how.s4p"></p>
-        </article>
-      </div>
+  <section class="overflow-visible pt-12 pb-0" id="how">
+    <div class={`${wrap} text-center`}>
+      <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="how.homeTitle">From offer to enjoy</h2>
     </div>
+    <HowJourney />
   </section>
 
   <section class={sectionSoft}>

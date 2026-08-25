@@ -1,16 +1,21 @@
 {
   "meta": {
-    "title": "UNEMDE — deals nearby, activate in 30 minutes",
+    "title": "UNEMDE",
     "description": "UNEMDE is an app for café and restaurant deals nearby. Book a slot and redeem with a QR code. UNEMDE Business is for venues.",
+    
     "guestTitle": "UNEMDE for guests",
     "guestDescription": "Find deals nearby, book a slot, and activate the discount in 30 minutes.",
+    
     "venueTitle": "UNEMDE Business for venues",
     "venueDescription": "Storefront, deals, QR scanner, and booking calendar for cafés and restaurants.",
+    
     "partnerTitle": "UNEMDE — become a partner",
     "partnerDescription": "Partner benefits and an application form for venues.",
+    
     "faqTitle": "UNEMDE — FAQ",
     "faqDescription": "Answers about deals, accounts, and UNEMDE partnership."
   },
+
   "nav": {
     "how": "How it works",
     "guests": "For guests",
@@ -22,6 +27,7 @@
     "menu": "Menu",
     "lang": "Language"
   },
+
   "hero": {
     "title": "Discover the best offers around you with UNEMDE",
     "lead": "Find discounts, partner places, and exclusive deals in cafés, restaurants, beauty, sport, and more — all in one mobile app.",
@@ -34,6 +40,22 @@
     "kicker": "How it works",
     "title": "Four steps from deal to table",
     "sub": "One flow for guests and venues: find an offer, book a time, activate on-site, and get the discount.",
+    "homeTitle": "From offer to enjoy",
+    "homeSub": "The venue sets the deal. The guest chooses, books, and arrives. The venue confirms — then it’s time to enjoy.",
+    "venue": "Venue",
+    "guest": "Guest",
+    "h1t": "Set the offer",
+    "h1p": "The venue publishes a deal in UNEMDE Business — what, when, and on what terms.",
+    "h2t": "Choose",
+    "h2p": "The guest finds the venue on the map or in the list and picks a deal that fits.",
+    "h3t": "Book",
+    "h3p": "A day and a time slot — the visit is planned, not a coupon for later.",
+    "h4t": "Arrive",
+    "h4p": "The guest shows up. The booking is ready to activate on-site.",
+    "h5t": "Confirm",
+    "h5p": "Staff scans the QR or the guest swipes. The deal is on for 30 minutes.",
+    "h6t": "Enjoy",
+    "h6p": "The discount is applied. Dine in or takeaway — then save the venue for next time.",
     "s1t": "Discover",
     "s1p": "Venues nearby on a map or in a list. Filter by category, rating, and distance. Coffee, pizza, burgers, bowls, dürüm.",
     "s2t": "Book",

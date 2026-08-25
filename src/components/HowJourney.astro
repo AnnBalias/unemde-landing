@@ -1,0 +1,189 @@
+---
+type Side = "venue" | "guest";
+
+const steps: {
+  n: string;
+  side: Side;
+  t: string;
+  p: string;
+  shot: string;
+  title: string;
+  text: string;
+}[] = [
+  {
+    n: "01",
+    side: "venue",
+    t: "how.h1t",
+    p: "how.h1p",
+    shot: "/imgs/unemde-business/ub-restaurantdetails-l.jpg",
+    title: "Set the offer",
+    text: "The venue publishes a deal in UNEMDE Business — what, when, and on what terms.",
+  },
+  {
+    n: "02",
+    side: "guest",
+    t: "how.h2t",
+    p: "how.h2p",
+    shot: "/imgs/unemde/u-mainpage-l.jpg",
+    title: "Choose",
+    text: "The guest finds the venue on the map or in the list and picks a deal that fits.",
+  },
+  {
+    n: "03",
+    side: "guest",
+    t: "how.h3t",
+    p: "how.h3p",
+    shot: "/imgs/unemde/u-restaurantpage-l.jpg",
+    title: "Book",
+    text: "A day and a time slot — the visit is planned, not a coupon for later.",
+  },
+  {
+    n: "04",
+    side: "guest",
+    t: "how.h4t",
+    p: "how.h4p",
+    shot: "/imgs/unemde/u-mydeals-l.jpg",
+    title: "Arrive",
+    text: "The guest shows up. The booking is ready to activate on-site.",
+  },
+  {
+    n: "05",
+    side: "venue",
+    t: "how.h5t",
+    p: "how.h5p",
+    shot: "/imgs/unemde-business/ub-scanner-l.jpg",
+    title: "Confirm",
+    text: "Staff scans the QR or the guest swipes. The deal is on for 30 minutes.",
+  },
+  {
+    n: "06",
+    side: "guest",
+    t: "how.h6t",
+    p: "how.h6p",
+    shot: "/imgs/unemde/u-rating-l.jpg",
+    title: "Enjoy",
+    text: "The discount is applied. Dine in or takeaway — then save the venue for next time.",
+  },
+];
+---
+
+<div class="mt-4 w-full" data-aos="fade-up">
+  <!--
+    overflow-x clips shadows — pad the scroll CONTENT so first/last card
+    shadows stay inside the scrollport. Inner relative box stays full grid width
+    so the step line still aligns to node centers.
+  -->
+  <div class="how-journey-scroll w-full overflow-x-auto overscroll-x-contain">
+    <div class="mb-8 mx-auto flex min-w-[1200px] w-full max-w-[1440px] px-8 pt-5 pb-5 sm:px-12 nav:px-16">
+      <div class="relative w-full min-w-0">
+        <ol class="m-0 grid list-none grid-cols-6 gap-4 p-0 sm:gap-5">
+        {
+          steps.map((s) => (
+            <li class="flex flex-col items-center">
+              <article
+                class:list={[
+                  "group relative aspect-[9/19] w-full overflow-hidden rounded-[20px] transition duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+                  s.side === "venue"
+                    ? "pb-2 bg-blue-dark shadow-[0_12px_32px_rgb(31_48_83/0.28)]"
+                    : "pb-2 border border-border bg-bg-soft shadow-card",
+                  s.n === "06" && "ring-1 ring-green-light/30",
+                ]}
+              >
+                {/* Phone frame — expands to full bleed on hover */}
+                <div
+                  class="absolute inset-x-2.5 top-2.5 bottom-[calc(34%+0.625rem)] overflow-hidden rounded-[16px] bg-[#101820] p-[5px] shadow-[0_8px_24px_rgb(16_24_40/0.18)] transition-all duration-500 ease-out group-hover:inset-0 group-hover:rounded-[20px] group-hover:p-0 group-hover:shadow-none motion-reduce:transition-none"
+                >
+                  <div class="h-full overflow-hidden rounded-[12px] group-hover:rounded-none">
+                    <img class="h-full w-full object-cover object-top" src={s.shot} alt="" />
+                  </div>
+                </div>
+
+                {/* Hover scrim */}
+                <div
+                  class="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,transparent_0%,transparent_48%,rgb(15_24_42/0.45)_68%,rgb(15_24_42/0.9)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"
+                  aria-hidden="true"
+                />
+
+                {/* Caption: solid panel at rest → overlay on hover */}
+                <div
+                  class:list={[
+                    "absolute inset-x-0 bottom-0 z-10 flex min-h-[34%] flex-col justify-center px-3 py-3 transition-all duration-500 group-hover:min-h-0 group-hover:justify-end group-hover:bg-transparent group-hover:pt-10 group-hover:pb-3.5 group-hover:text-white motion-reduce:transition-none",
+                    s.side === "venue" ? "bg-blue-dark text-white" : "bg-white text-text",
+                  ]}
+                >
+                  <p
+                    class:list={[
+                      "text-[10px] font-bold tracking-[0.08em] uppercase group-hover:text-white/75",
+                      s.side === "venue" ? "text-white/55" : "text-blue-light",
+                    ]}
+                    data-i18n={s.side === "venue" ? "how.venue" : "how.guest"}
+                  >
+                    {s.side === "venue" ? "Venue" : "Guest"}
+                  </p>
+                  <h3 class="mt-1 text-[15px] leading-tight font-bold" data-i18n={s.t}>
+                    {s.title}
+                  </h3>
+                  <p
+                    class:list={[
+                      "mt-1.5 line-clamp-3 text-[11px] leading-4 group-hover:text-white/85",
+                      s.side === "venue" ? "text-white/68" : "text-dark-gray",
+                    ]}
+                    data-i18n={s.p}
+                  >
+                    {s.text}
+                  </p>
+                </div>
+              </article>
+
+              <div class="relative mt-3 flex w-full flex-col items-center">
+                <span class="mb-2 h-3 w-px bg-border" aria-hidden="true" />
+                <div
+                  class:list={[
+                    "relative z-10 grid size-10 place-items-center rounded-full border-4 border-white text-[12px] font-bold text-white shadow-card",
+                    s.n === "06"
+                      ? "bg-green-light"
+                      : s.side === "venue"
+                        ? "bg-blue-dark"
+                        : "bg-blue-light",
+                  ]}
+                >
+                  {s.n}
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div
+        class="pointer-events-none absolute right-[calc(100%/12)] bottom-[20px] left-[calc(100%/12)] h-px bg-[linear-gradient(90deg,#1f3053_0%,#456bb9_55%,#359752_100%)]"
+        aria-hidden="true"
+      />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .how-journey-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-blue-light) rgb(70 107 185 / 0.12);
+  }
+
+  .how-journey-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .how-journey-scroll::-webkit-scrollbar-track {
+    background: rgb(70 107 185 / 0.12);
+  }
+
+  .how-journey-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--color-blue-dark), var(--color-blue-light));
+    border-radius: 999px;
+  }
+
+  .how-journey-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-blue-mid);
+  }
+</style>
