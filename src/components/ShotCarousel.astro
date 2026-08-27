@@ -9,8 +9,8 @@ const { shots, alt = false } = Astro.props;
 
 <div
   class:list={[
-    "shot-carousel relative mx-auto aspect-[9/19] w-[202px] max-w-full shrink-0 outline-none",
-    "rounded-[32px] border bg-[#101820] p-[3.6%] shadow-float",
+    "shot-carousel relative mx-auto aspect-[9/19] h-auto w-[202px] max-w-full shrink-0 self-center justify-self-center overflow-hidden outline-none",
+    "rounded-[32px] border bg-[#101820] p-2 shadow-float",
     "focus-visible:ring-2 focus-visible:ring-blue-light focus-visible:ring-offset-2",
     alt ? "border-white/18 focus-visible:ring-offset-transparent" : "border-black/25",
   ]}

@@ -19,7 +19,7 @@ export const sub = "mt-3 max-w-xl text-base text-dark-gray";
 export const subOnNavy = "mt-3 max-w-xl text-base text-white/72";
 
 export const hero =
-  "relative mx-4 overflow-hidden rounded-[20px] bg-brand px-20 pt-8 pb-32 text-white max-nav:px-5 max-nav:pt-16 max-nav:pb-16 sm:max-nav:pb-28 before:pointer-events-none before:absolute before:-top-[120px] before:-right-20 before:size-[520px] before:rounded-full before:bg-[radial-gradient(circle,rgb(255_255_255/0.12),transparent_68%)] before:content-['']";
+  "relative mx-4 overflow-hidden rounded-[20px] bg-brand px-20 pt-8 pb-32 text-white max-nav:px-5 max-nav:pt-16 max-nav:pb-7 before:pointer-events-none before:absolute before:-top-[120px] before:-right-20 before:size-[520px] before:rounded-full before:bg-[radial-gradient(circle,rgb(255_255_255/0.12),transparent_68%)] before:content-['']";
 export const pageHero =
   "relative mx-4 overflow-hidden rounded-[20px] bg-brand px-20 py-12 text-white max-nav:px-5 max-nav:py-14 before:pointer-events-none before:absolute before:-top-[140px] before:-right-[90px] before:size-[420px] before:rounded-full before:bg-[radial-gradient(circle,rgb(255_255_255/0.12),transparent_68%)] before:content-['']";
 export const heroGrid =
@@ -33,7 +33,7 @@ export const heroCta = "mt-7 flex flex-wrap gap-3 max-sm:flex-col max-sm:[&>a]:w
 export const pageHeroCta = "mt-6 flex flex-wrap gap-3 max-sm:flex-col max-sm:[&>a]:w-full";
 
 export const phones =
-  "relative mx-auto aspect-[5/6] w-full max-w-[440px] max-nav:max-w-[340px] max-sm:max-w-[280px] sm:max-nav:aspect-[4/5] sm:max-nav:max-w-[300px]";
+  "relative mx-auto aspect-[5/6] w-full max-w-[440px] max-nav:aspect-[5/8] max-nav:max-w-[340px] max-sm:max-w-[280px] sm:max-nav:max-w-[300px]";
 export const phonesInline = phones;
 
 export const steps =

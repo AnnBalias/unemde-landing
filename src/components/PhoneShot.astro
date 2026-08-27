@@ -17,12 +17,26 @@ const frame =
     : "rotate-[8deg] animate-float-b max-sm:rotate-[5deg] motion-reduce:animate-none motion-reduce:rotate-[8deg]";
 ---
 
-<div class={`absolute ${pos}`} data-aos={aos} data-aos-delay={delay}>
+<div class={`phone-shot absolute ${pos}`} data-aos={aos} data-aos-delay={delay}>
   <div
-    class={`aspect-[9/19] w-full rounded-[clamp(22px,7vw,36px)] border border-white/18 bg-[#101820] p-[3.6%] shadow-float ${frame}`}
+    class={`phone-shot-frame aspect-[9/19] w-full overflow-hidden border border-white/18 bg-[#101820] p-[3.6%] shadow-float ${frame}`}
   >
-    <div class="h-full overflow-hidden rounded-[clamp(16px,5.5vw,28px)] bg-[#0e1728]">
+    <div class="phone-shot-screen h-full overflow-hidden bg-[#0e1728]">
       <img class="h-full w-full object-cover object-top" src={src} alt="" />
     </div>
   </div>
 </div>
+
+<style>
+  .phone-shot {
+    container-type: inline-size;
+  }
+
+  .phone-shot-frame {
+    border-radius: clamp(12px, 14cqi, 36px);
+  }
+
+  .phone-shot-screen {
+    border-radius: clamp(8px, 10cqi, 28px);
+  }
+</style>
