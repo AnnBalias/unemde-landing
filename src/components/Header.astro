@@ -17,13 +17,14 @@ const { page } = Astro.props;
   transition:persist="site-nav"
 >
   <div class={`${wrap} flex h-full items-center justify-between gap-4`}>
-    <a class="flex shrink-0 items-center gap-2.5" href="/" aria-label="UNEMDE">
-      <Logo gradId="navGrad" />
-    </a>
-    <nav
-      class="flex items-center gap-[18px] text-[13px] font-semibold text-dark-gray max-nav:hidden max-nav:data-open:absolute max-nav:data-open:top-full max-nav:data-open:right-4 max-nav:data-open:left-4 max-nav:data-open:mt-2 max-nav:data-open:flex max-nav:data-open:flex-col max-nav:data-open:gap-1 max-nav:data-open:rounded-[20px] max-nav:data-open:border max-nav:data-open:border-border max-nav:data-open:bg-white/96 max-nav:data-open:p-2 max-nav:data-open:shadow-float max-nav:data-open:backdrop-blur-xl"
-      id="navLinks"
-    >
+    <div class="flex min-w-0 items-center gap-6">
+      <a class="flex shrink-0 items-center gap-2.5" href="/" aria-label="UNEMDE">
+        <Logo gradId="navGrad" />
+      </a>
+      <nav
+        class="flex items-center gap-[18px] text-[13px] font-semibold text-dark-gray max-nav:hidden max-nav:data-open:absolute max-nav:data-open:top-full max-nav:data-open:right-4 max-nav:data-open:left-4 max-nav:data-open:mt-2 max-nav:data-open:flex max-nav:data-open:flex-col max-nav:data-open:gap-1 max-nav:data-open:rounded-[20px] max-nav:data-open:border max-nav:data-open:border-border max-nav:data-open:bg-white/96 max-nav:data-open:p-2 max-nav:data-open:shadow-float max-nav:data-open:backdrop-blur-xl"
+        id="navLinks"
+      >
       {
         NAV_LINKS.map((item) => (
           <a
@@ -44,6 +45,7 @@ const { page } = Astro.props;
         Get the app
       </a>
     </nav>
+    </div>
     <div class="flex items-center gap-2.5">
       <LangSwitch />
       <a
