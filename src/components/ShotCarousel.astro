@@ -1,0 +1,49 @@
+---
+interface Props {
+  shots: string[];
+  alt?: boolean;
+}
+
+const { shots, alt = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "shot-carousel relative mx-auto aspect-[9/19] w-[202px] max-w-full shrink-0 outline-none",
+    "rounded-[32px] border bg-[#101820] p-[3.6%] shadow-float",
+    "focus-visible:ring-2 focus-visible:ring-blue-light focus-visible:ring-offset-2",
+    alt ? "border-white/18 focus-visible:ring-offset-transparent" : "border-black/25",
+  ]}
+  data-shot-carousel
+  tabindex="0"
+>
+  <div class="relative h-full overflow-hidden rounded-[24px] bg-[#0e1728]">
+    {
+      shots.map((src, i) => (
+        <img
+          class:list={["shot-carousel-img absolute inset-0 h-full w-full object-cover object-top", i === 0 && "is-active"]}
+          data-shot
+          src={src}
+          alt=""
+        />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .shot-carousel-img {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .shot-carousel-img.is-active {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shot-carousel-img {
+      transition: none;
+    }
+  }
+</style>

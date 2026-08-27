@@ -50,10 +50,11 @@ export const feature = "grid grid-cols-[44px_1fr] items-start gap-3";
 export const iconBox =
   "grid size-11 place-items-center rounded-[14px] bg-blue-soft text-blue-dark";
 
-export const apps = "mt-10 grid grid-cols-2 gap-5 max-nav:grid-cols-1";
-export const appCard = "rounded-[20px] border border-border bg-white p-7 shadow-card";
+export const apps = "mt-10 mb-8 grid grid-cols-2 gap-5 max-nav:grid-cols-1";
+export const appCard =
+  "grid grid-cols-1 items-stretch gap-6 rounded-[20px] border border-border bg-white p-7 shadow-card sm:grid-cols-[minmax(0,1fr)_auto]";
 export const appCardAlt =
-  "rounded-[20px] border-0 bg-app-alt p-7 text-white";
+  "grid grid-cols-1 items-stretch gap-6 rounded-[20px] border-0 bg-app-alt p-7 text-white sm:grid-cols-[minmax(0,1fr)_auto]";
 export const badge =
   "inline-flex rounded-pill px-2.5 py-1 text-[11px] font-bold tracking-[0.04em] text-blue-dark uppercase bg-blue-soft";
 export const badgeAlt =

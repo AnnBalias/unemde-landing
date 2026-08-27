@@ -78,6 +78,31 @@ function closeHowSteps() {
   document.querySelectorAll("[data-how-step]").forEach((el) => el.removeAttribute("data-open"));
 }
 
+function initShotCarousels() {
+  document.querySelectorAll<HTMLElement>("[data-shot-carousel]").forEach((root) => {
+    const existing = Number(root.dataset.shotTimer || "");
+    if (existing) window.clearInterval(existing);
+    delete root.dataset.shotTimer;
+
+    const slides = [...root.querySelectorAll<HTMLElement>("[data-shot]")];
+    if (slides.length < 2) return;
+
+    slides.forEach((slide, i) => slide.classList.toggle("is-active", i === 0));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let index = 0;
+    const isPaused = () => root.matches(":hover, :focus-visible, :focus-within");
+
+    const id = window.setInterval(() => {
+      if (isPaused()) return;
+      slides[index].classList.remove("is-active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("is-active");
+    }, 1500);
+    root.dataset.shotTimer = String(id);
+  });
+}
+
 function toggleHowStep(step: HTMLElement) {
   const wasOpen = step.hasAttribute("data-open");
   closeHowSteps();
@@ -293,6 +318,7 @@ async function onPageLoad() {
   closeLangMenu();
   closeNavMenu();
   bindListeners();
+  initShotCarousels();
   AOS.init({
     duration: 780,
     easing: "ease-out-cubic",

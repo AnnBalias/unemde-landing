@@ -2,6 +2,7 @@
 import FaqItem from "../components/FaqItem.astro";
 import HowJourney from "../components/HowJourney.astro";
 import PhoneShot from "../components/PhoneShot.astro";
+import ShotCarousel from "../components/ShotCarousel.astro";
 import Layout from "../layouts/Layout.astro";
 import {
   appCard,
@@ -14,6 +15,8 @@ import {
   btnGhost,
   btnOnDark,
   btnPrimary,
+  check,
+  checkList,
   h2,
   hero,
   heroCta,
@@ -26,11 +29,24 @@ import {
   section,
   sectionCta,
   sectionNavy,
-  sectionSoft,
-  sub,
   subOnNavy,
   wrap,
 } from "../lib/ui";
+
+const guestShots = [
+  "/imgs/unemde/u-loadscreen.jpg",
+  "/imgs/unemde/u-mainpage-l.jpg",
+  "/imgs/unemde/u-restaurantpage-l.jpg",
+  "/imgs/unemde/u-mydeals-l.jpg",
+  "/imgs/unemde/u-rating-l.jpg",
+];
+
+const venueShots = [
+  "/imgs/unemde-business/ub-loadscreen.jpg",
+  "/imgs/unemde-business/ub-restaurantdetails-l.jpg",
+  "/imgs/unemde-business/ub-bookingcalendar-l.jpg",
+  "/imgs/unemde-business/ub-scanner-l.jpg",
+];
 ---
 
 <Layout page="home">
@@ -54,56 +70,66 @@ import {
     </div>
   </section>
 
-  <section class="overflow-visible pt-12 pb-0" id="how">
+  <section class="overflow-visible pt-6 pb-0" id="how">
     <div class={`${wrap} text-center`}>
       <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="how.homeTitle">From offer to enjoy</h2>
     </div>
     <HowJourney />
   </section>
 
-  <section class={sectionSoft}>
-    <div class={wrap}>
-      <p class={kicker} data-aos="fade-up" data-i18n="home.chooseKicker">Choose a role</p>
-      <h2 class={h2} data-aos="fade-up" data-i18n="home.chooseTitle">Guest or venue?</h2>
-      <p class={sub} data-aos="fade-up" data-i18n="home.chooseSub">Two apps — one local-deals service.</p>
-      <div class={apps}>
-        <article class={appCard} data-aos="fade-up">
-          <div class="mb-[18px] grid grid-cols-2 gap-2.5">
-            <img
-              class="aspect-9/16 w-full rounded-[14px] border border-border object-cover object-top"
-              src="/imgs/unemde/u-loadscreen.jpg"
-              alt=""
-            />
-            <img
-              class="aspect-9/16 w-full rounded-[14px] border border-border object-cover object-top"
-              src="/imgs/unemde/u-mainpage-d.jpg"
-              alt=""
-            />
+  <section class="overflow-visible pt-6 pb-3">
+    <div class={`${wrap} text-center`}>
+      <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="home.chooseTitle">What we offer</h2>
+    </div>
+    <div class={`${wrap} ${apps}`}>
+      <article class={appCard} data-aos="fade-up">
+        <div class="flex min-w-0 flex-col">
+          <h3 class="text-2xl font-bold">UNEMDE</h3>
+          <span class={`${badge} mt-3 w-fit`} data-i18n="apps.gTitle">For guests</span>
+          <ul class={checkList}>
+            <li class="flex items-start gap-2.5">
+              <span class={check}>✓</span>
+              <span data-i18n="apps.g1"></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class={check}>✓</span>
+              <span data-i18n="apps.g2"></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class={check}>✓</span>
+              <span data-i18n="apps.g3"></span>
+            </li>
+          </ul>
+          <div class="mt-auto pt-6">
+            <a class={`${btnPrimary} font-medium!`} href="/guest" data-i18n="home.more">Learn more</a>
           </div>
-          <span class={badge}>UNEMDE</span>
-          <h3 class="mt-2 text-2xl" data-i18n="apps.gTitle">For guests</h3>
-          <p class="mt-2.5 text-[15px] text-dark-gray" data-i18n="apps.gText"></p>
-          <a class={`${btnPrimary} mt-6`} href="/guest" data-i18n="home.more">Learn more</a>
-        </article>
-        <article class={appCardAlt} data-aos="fade-up" data-aos-delay="120">
-          <div class="mb-[18px] grid grid-cols-2 gap-2.5">
-            <img
-              class="aspect-9/16 w-full rounded-[14px] border border-white/16 object-cover object-top"
-              src="/imgs/unemde-business/ub-loadscreen.jpg"
-              alt=""
-            />
-            <img
-              class="aspect-9/16 w-full rounded-[14px] border border-white/16 object-cover object-top"
-              src="/imgs/unemde-business/ub-scanner-d.jpg"
-              alt=""
-            />
+        </div>
+        <ShotCarousel shots={guestShots} />
+      </article>
+      <article class={appCardAlt} data-aos="fade-up" data-aos-delay="120">
+        <div class="flex min-w-0 flex-col">
+          <h3 class="text-2xl font-bold">UNEMDE Business</h3>
+          <span class={`${badgeAlt} mt-3 w-fit`} data-i18n="apps.bTitle">For venues</span>
+          <ul class={checkList}>
+            <li class="flex items-start gap-2.5">
+              <span class={check}>✓</span>
+              <span data-i18n="apps.b1"></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class={check}>✓</span>
+              <span data-i18n="apps.b2"></span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class={check}>✓</span>
+              <span data-i18n="apps.b3"></span>
+            </li>
+          </ul>
+          <div class="mt-auto pt-6">
+            <a class={`${btnGhost} font-medium!`} href="/venue" data-i18n="home.more">Learn more</a>
           </div>
-          <span class={badgeAlt}>UNEMDE Business</span>
-          <h3 class="mt-2 text-2xl" data-i18n="apps.bTitle">For venues</h3>
-          <p class="mt-2.5 text-[15px] text-white/78" data-i18n="apps.bText"></p>
-          <a class={`${btnGhost} mt-6`} href="/venue" data-i18n="home.more">Learn more</a>
-        </article>
-      </div>
+        </div>
+        <ShotCarousel shots={venueShots} alt />
+      </article>
     </div>
   </section>
 
