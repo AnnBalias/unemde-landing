@@ -74,6 +74,21 @@ function closeLangMenu() {
   if (menu) menu.hidden = true;
 }
 
+function closeHowSteps() {
+  document.querySelectorAll("[data-how-step]").forEach((el) => el.removeAttribute("data-open"));
+}
+
+function toggleHowStep(step: HTMLElement) {
+  const wasOpen = step.hasAttribute("data-open");
+  closeHowSteps();
+  if (wasOpen) {
+    step.blur();
+    return;
+  }
+  step.setAttribute("data-open", "");
+  step.focus();
+}
+
 function openLangMenu() {
   const btn = document.getElementById("langBtn");
   const menu = document.getElementById("langMenu");
@@ -168,6 +183,13 @@ function bindListeners() {
       closeNavMenu();
     }
 
+    const howStep = target.closest<HTMLElement>("[data-how-step]");
+    if (howStep) {
+      toggleHowStep(howStep);
+      return;
+    }
+    closeHowSteps();
+
     const faqBtn = target.closest("[data-faq-item] > button");
     if (faqBtn) {
       const item = faqBtn.parentElement;
@@ -209,6 +231,16 @@ function bindListeners() {
 
     if (event.key === "Escape") {
       closeNavMenu();
+      const focusedStep = document.activeElement?.closest?.("[data-how-step]");
+      closeHowSteps();
+      if (focusedStep instanceof HTMLElement) focusedStep.blur();
+    }
+
+    const howStep = event.target instanceof HTMLElement ? event.target.closest("[data-how-step]") : null;
+    if (howStep instanceof HTMLElement && howStep === event.target && (event.key === "Enter" || event.key === " ")) {
+      event.preventDefault();
+      toggleHowStep(howStep);
+      return;
     }
 
     if (!open) {

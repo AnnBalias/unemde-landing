@@ -82,38 +82,40 @@ const steps: {
             <li class="flex flex-col items-center">
               <article
                 class:list={[
-                  "group relative aspect-[9/19] w-full overflow-hidden rounded-[20px] transition duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+                  "how-step group relative aspect-[9/19] w-full cursor-pointer overflow-hidden rounded-[20px] transition duration-300 outline-none motion-reduce:transition-none",
                   s.side === "venue"
                     ? "pb-2 bg-blue-dark shadow-[0_12px_32px_rgb(31_48_83/0.28)]"
                     : "pb-2 border border-border bg-bg-soft shadow-card",
                   s.n === "06" && "ring-1 ring-green-light/30",
                 ]}
+                data-how-step
+                tabindex="0"
               >
-                {/* Phone frame — expands to full bleed on hover */}
+                {/* Phone frame — expands to full bleed on hover / focus / tap */}
                 <div
-                  class="absolute inset-x-2.5 top-2.5 bottom-[calc(34%+0.625rem)] overflow-hidden rounded-[16px] bg-[#101820] p-[5px] shadow-[0_8px_24px_rgb(16_24_40/0.18)] transition-all duration-500 ease-out group-hover:inset-0 group-hover:rounded-[20px] group-hover:p-0 group-hover:shadow-none motion-reduce:transition-none"
+                  class="how-step-shot absolute inset-x-2.5 top-2.5 bottom-[calc(34%+0.625rem)] overflow-hidden rounded-[16px] bg-[#101820] p-[5px] shadow-[0_8px_24px_rgb(16_24_40/0.18)] transition-all duration-500 ease-out motion-reduce:transition-none"
                 >
-                  <div class="h-full overflow-hidden rounded-[12px] group-hover:rounded-none">
+                  <div class="how-step-shot-inner h-full overflow-hidden rounded-[12px]">
                     <img class="h-full w-full object-cover object-top" src={s.shot} alt="" />
                   </div>
                 </div>
 
-                {/* Hover scrim */}
+                {/* Hover / focus scrim */}
                 <div
-                  class="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,transparent_0%,transparent_48%,rgb(15_24_42/0.45)_68%,rgb(15_24_42/0.9)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"
+                  class="how-step-scrim pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,transparent_0%,transparent_48%,rgb(15_24_42/0.45)_68%,rgb(15_24_42/0.9)_100%)] opacity-0 transition-opacity duration-500 motion-reduce:transition-none"
                   aria-hidden="true"
                 />
 
-                {/* Caption: solid panel at rest → overlay on hover */}
+                {/* Caption: solid panel at rest → overlay when previewed */}
                 <div
                   class:list={[
-                    "absolute inset-x-0 bottom-0 z-10 flex min-h-[34%] flex-col justify-center px-3 py-3 transition-all duration-500 group-hover:min-h-0 group-hover:justify-end group-hover:bg-transparent group-hover:pt-10 group-hover:pb-3.5 group-hover:text-white motion-reduce:transition-none",
+                    "how-step-caption absolute inset-x-0 bottom-0 z-10 flex min-h-[34%] flex-col justify-center px-3 py-3 transition-all duration-500 motion-reduce:transition-none",
                     s.side === "venue" ? "bg-blue-dark text-white" : "bg-white text-text",
                   ]}
                 >
                   <p
                     class:list={[
-                      "text-[10px] font-bold tracking-[0.08em] uppercase group-hover:text-white/75",
+                      "how-step-kicker text-[10px] font-bold tracking-[0.08em] uppercase",
                       s.side === "venue" ? "text-white/55" : "text-blue-light",
                     ]}
                     data-i18n={s.side === "venue" ? "how.venue" : "how.guest"}
@@ -125,7 +127,7 @@ const steps: {
                   </h3>
                   <p
                     class:list={[
-                      "mt-1.5 line-clamp-3 text-[11px] leading-4 group-hover:text-white/85",
+                      "how-step-text mt-1.5 line-clamp-3 text-[11px] leading-4",
                       s.side === "venue" ? "text-white/68" : "text-dark-gray",
                     ]}
                     data-i18n={s.p}
@@ -165,6 +167,52 @@ const steps: {
 </div>
 
 <style>
+  .how-step {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) {
+    transform: translateY(-0.25rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .how-step:is(:hover, :focus, [data-open]) {
+      transform: none;
+    }
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-shot {
+    inset: 0;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-shot-inner {
+    border-radius: 0;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-scrim {
+    opacity: 1;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-caption {
+    min-height: 0;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding-top: 2.5rem;
+    padding-bottom: 0.875rem;
+    color: #fff;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-kicker {
+    color: rgb(255 255 255 / 0.75);
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-text {
+    color: rgb(255 255 255 / 0.85);
+  }
+
   .how-journey-scroll {
     scrollbar-width: thin;
     scrollbar-color: var(--color-blue-light) rgb(70 107 185 / 0.12);
