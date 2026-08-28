@@ -121,7 +121,9 @@
     "partnerCta": "Staňte se partnerem",
     "faqKicker": "FAQ",
     "faqTitle": "Hlavní otázky",
-    "faqAll": "Všechny otázky"
+    "faqAll": "Všechny otázky",
+    "faqMoreTitle": "Nenašli jste odpověď?",
+    "faqMoreSub": "Prohlédněte si všechny otázky"
   },
   "cta": {
     "title": "Připraveni najít nabídku poblíž?",

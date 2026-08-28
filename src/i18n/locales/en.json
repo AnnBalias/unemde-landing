@@ -123,7 +123,9 @@
     "partnerCta": "Become a partner",
     "faqKicker": "FAQ",
     "faqTitle": "Top questions",
-    "faqAll": "All questions"
+    "faqAll": "All questions",
+    "faqMoreTitle": "Didn’t find an answer?",
+    "faqMoreSub": "Browse all questions"
   },
   "cta": {
     "title": "Ready to find a deal nearby?",

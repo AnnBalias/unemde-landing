@@ -23,10 +23,8 @@ import {
   heroCta,
   heroGrid,
   heroTitle,
-  kicker,
   lead,
   phones,
-  section,
   sectionBrand,
   sectionCta,
   subOnNavy,
@@ -164,18 +162,21 @@ const venueShots = [
     </div>
   </section>
 
-  <section class={section}>
-    <div class={`${wrap} max-w-[760px]`}>
-      <p class={kicker} data-aos="fade-up" data-i18n="home.faqKicker">FAQ</p>
-      <h2 class={h2} data-aos="fade-up" data-i18n="home.faqTitle">Top questions</h2>
-      <div data-aos="fade-up">
-        <FaqItem q="faq.q1" a="faq.a1" open />
-        <FaqItem q="faq.q4" a="faq.a4" />
-        <FaqItem q="faq.q11" a="faq.a11" />
-      </div>
-      <div class={sectionCta} data-aos="fade-up">
-        <a class={btnPrimary} href="/faq" data-i18n="home.faqAll">All questions</a>
-      </div>
+  <section class="overflow-visible pt-10 pb-16">
+    <div class={`${wrap} text-center`}>
+      <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="home.faqTitle">Top questions</h2>
+    </div>
+    <div class={`${wrap} ${apps}`} data-aos="fade-up">
+      <FaqItem q="faq.q1" a="faq.a1" alwaysOpen />
+      <FaqItem q="faq.q4" a="faq.a4" alwaysOpen />
+      <FaqItem q="faq.q11" a="faq.a11" alwaysOpen />
+      <article class="flex h-full items-stretch justify-between gap-4 overflow-hidden rounded-[20px] border border-border bg-white p-7 shadow-card">
+        <div class="min-w-0">
+          <h3 class="text-base font-bold text-text" data-i18n="home.faqMoreTitle">Didn’t find an answer?</h3>
+          <p class="mt-3 text-sm leading-[21px] text-dark-gray" data-i18n="home.faqMoreSub">Browse all questions</p>
+        </div>
+        <a class={`${btnPrimary} shrink-0 self-end`} href="/faq" data-i18n="home.faqAll">All questions</a>
+      </article>
     </div>
   </section>
 </Layout>
