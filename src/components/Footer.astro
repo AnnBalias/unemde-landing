@@ -10,12 +10,12 @@ interface Props {
 const { page } = Astro.props;
 ---
 
-<footer class="bg-blue-dark pt-12 pb-6 text-[13px] text-white/82" id="stores">
-  <div class={`${wrap} grid grid-cols-[auto_1fr_auto] items-center gap-6 max-nav:grid-cols-1`}>
-    <a class="flex items-center gap-2.5 max-nav:justify-self-start" href="/" aria-label="UNEMDE">
-      <Logo gradId="footGrad" light />
-    </a>
-    <nav class="flex flex-wrap justify-center gap-x-5 gap-y-2 font-semibold max-nav:justify-self-start">
+<footer class="bg-blue-dark pt-8 pb-4 text-[13px] text-white/82" id="stores">
+  <div class={`${wrap} flex items-center justify-between gap-x-6 max-[600px]:items-start`}>
+    <nav class="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-3 font-semibold max-[600px]:flex-col max-[600px]:items-start max-[600px]:gap-y-2.5">
+      <a class="flex shrink-0 items-center gap-2.5" href="/" aria-label="UNEMDE">
+        <Logo gradId="footGrad" light />
+      </a>
       {
         NAV_LINKS.map((item) => (
           <a
@@ -29,55 +29,23 @@ const { page } = Astro.props;
         ))
       }
     </nav>
-    <div class="flex gap-2.5 max-nav:justify-self-start">
-      <a
-        class="grid size-11 place-items-center rounded-xl border border-white/20 text-white transition-[background,border-color] duration-200 hover:border-white/40 hover:bg-white/10"
-        href="https://www.linkedin.com/"
-        target="_blank"
-        rel="noreferrer"
-        data-i18n="footer.linkedin"
-        data-i18n-attr="aria-label"
-        aria-label="LinkedIn"
+    <a
+      class="inline-flex size-9 shrink-0 items-center justify-center rounded-[10px] border border-white/28 bg-white/14 text-white transition duration-200 hover:-translate-y-px hover:bg-white/22"
+      href="https://www.linkedin.com/company/unemde/"
+      target="_blank"
+      rel="noreferrer"
+      data-i18n="footer.linkedin"
+      data-i18n-attr="aria-label"
+      aria-label="LinkedIn"
+    >
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"
+        ><path
+          d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.52V24H.24zM8.34 8.25h4.33v2.14h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.93V24h-4.52v-7.69c0-1.83-.03-4.19-2.55-4.19-2.55 0-2.94 1.99-2.94 4.05V24H8.34z"
+        ></path></svg
       >
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"
-          ><path
-            d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.52V24H.24zM8.34 8.25h4.33v2.14h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.93V24h-4.52v-7.69c0-1.83-.03-4.19-2.55-4.19-2.55 0-2.94 1.99-2.94 4.05V24H8.34z"
-          ></path></svg
-        >
-      </a>
-      <a
-        class="grid size-11 place-items-center rounded-xl border border-white/20 text-white transition-[background,border-color] duration-200 hover:border-white/40 hover:bg-white/10"
-        href="https://apps.apple.com/"
-        target="_blank"
-        rel="noreferrer"
-        data-i18n="footer.appstore"
-        data-i18n-attr="aria-label"
-        aria-label="App Store"
-      >
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"
-          ><path
-            d="M16.7 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.6.9s-1.9-1-3.1-.9c-1.6 0-3.1 1-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 3 2.3 1.2-.1 1.6-.7 3.1-.7s1.8.7 3.1.7 2-.1 3-2.3c1.1-1.2 1.5-2.4 1.5-2.5-.1 0-2.9-1.1-2.9-4.8zM14.6 5.3c.6-.8 1.1-1.9.9-3-1 .1-2.2.7-2.9 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.5 3-1.4z"
-          ></path></svg
-        >
-      </a>
-      <a
-        class="grid size-11 place-items-center rounded-xl border border-white/20 text-white transition-[background,border-color] duration-200 hover:border-white/40 hover:bg-white/10"
-        href="https://play.google.com/store/apps"
-        target="_blank"
-        rel="noreferrer"
-        data-i18n="footer.play"
-        data-i18n-attr="aria-label"
-        aria-label="Google Play"
-      >
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"
-          ><path
-            d="M3.2 2.3c-.3.2-.5.6-.5 1.1v17.2c0 .5.2.9.5 1.1l.1.1 9.6-9.6v-.3L3.3 2.3zm12.1 7.1-2.2 2.2 2.3 2.3 5.2-3c.6-.4.6-1 0-1.3zm-3.1 3.1L3.6 21.6c.2 0 .4 0 .5-.1l10-5.7zm.9-5.2L4.1 2.5c-.2 0-.4-.1-.5-.1l8.6 8.6z"
-          ></path></svg
-        >
-      </a>
-    </div>
+    </a>
   </div>
-  <div class={`${wrap} mt-7 flex flex-wrap justify-between gap-3 border-t border-white/12 pt-5 text-white/60`}>
+  <div class={`${wrap} mt-4 flex flex-wrap justify-between gap-3 border-t border-white/12 pt-3 text-white/60`}>
     <span data-i18n="footer.rights">© 2026 UNEMDE</span>
     <span data-i18n="footer.note">Guests and venues · local deals · on-site activation</span>
   </div>
