@@ -57,6 +57,7 @@
   --radius-pill: 40px;
   --breakpoint-nav: 61.25rem;
   --background-image-brand: linear-gradient(90deg, var(--color-blue-dark) 0%, var(--color-blue-light) 100%);
+  --background-image-brand-down: linear-gradient(180deg, var(--color-blue-light) 0%, var(--color-blue-dark) 100%);
   --background-image-green-grad: linear-gradient(90deg, var(--color-green-dark) 0%, var(--color-green-light) 100%);
   --background-image-app-alt: linear-gradient(180deg, #1f3053 0%, #314b82 100%);
   --animate-float-a: float-a 5.2s ease-in-out infinite;

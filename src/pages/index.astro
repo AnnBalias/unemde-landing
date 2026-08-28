@@ -10,9 +10,10 @@ import {
   apps,
   badge,
   badgeAlt,
-  benefit,
+  benefitGlass,
   benefits,
   btnGhost,
+  btnGreen,
   btnOnDark,
   btnPrimary,
   check,
@@ -23,14 +24,14 @@ import {
   heroGrid,
   heroTitle,
   kicker,
-  kickerLight,
   lead,
   phones,
   section,
+  sectionBrand,
   sectionCta,
-  sectionNavy,
   subOnNavy,
   wrap,
+  wrapPad,
 } from "../lib/ui";
 
 const guestShots = [
@@ -70,7 +71,7 @@ const venueShots = [
     </div>
   </section>
 
-  <section class="overflow-visible pt-6 pb-0" id="how">
+  <section class="overflow-visible pt-10 pb-0" id="how">
     <div class={`${wrap} text-center`}>
       <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="how.homeTitle">From offer to enjoy</h2>
     </div>
@@ -101,7 +102,7 @@ const venueShots = [
             </li>
           </ul>
           <div class="mt-auto pt-6">
-            <a class={`${btnPrimary} font-medium!`} href="/guest" data-i18n="home.more">Learn more</a>
+            <a class={btnPrimary} href="/guest" data-i18n="home.more">Learn more</a>
           </div>
         </div>
         <ShotCarousel shots={guestShots} />
@@ -125,7 +126,7 @@ const venueShots = [
             </li>
           </ul>
           <div class="mt-auto pt-6">
-            <a class={`${btnGhost} font-medium!`} href="/venue" data-i18n="home.more">Learn more</a>
+            <a class={btnGhost} href="/venue" data-i18n="home.more">Learn more</a>
           </div>
         </div>
         <ShotCarousel shots={venueShots} alt />
@@ -133,31 +134,32 @@ const venueShots = [
     </div>
   </section>
 
-  <section class={sectionNavy}>
-    <div class={wrap}>
-      <p class={kickerLight} data-aos="fade-up" data-i18n="partner.kicker">Become a Partner</p>
-      <h2 class={h2} data-aos="fade-up" data-i18n="partner.title">Grow your business with UNEMDE</h2>
-      <p class={subOnNavy} data-aos="fade-up" data-i18n="partner.sub"></p>
+  <section class={sectionBrand}>
+    <div class={wrapPad}>
+      <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="partner.title">Grow your business with UNEMDE</h2>
+      <p class={subOnNavy} data-aos="fade-up" data-i18n="partner.sub">
+        Join local businesses already reaching new customers every day through our platform.
+      </p>
       <div class={benefits}>
-        <article class={benefit} data-aos="fade-up">
-          <h3 class="text-base" data-i18n="partner.v1t"></h3>
-          <p class="mt-2 text-sm text-dark-gray" data-i18n="partner.v1p"></p>
+        <article class={benefitGlass} data-aos="fade-up">
+          <h3 class="text-base font-medium" data-i18n="partner.v1t"></h3>
+          <p class="mt-2 text-sm text-white/72" data-i18n="partner.v1p"></p>
         </article>
-        <article class={benefit} data-aos="fade-up" data-aos-delay="80">
-          <h3 class="text-base" data-i18n="partner.v2t"></h3>
-          <p class="mt-2 text-sm text-dark-gray" data-i18n="partner.v2p"></p>
+        <article class={benefitGlass} data-aos="fade-up" data-aos-delay="80">
+          <h3 class="text-base font-medium" data-i18n="partner.v2t"></h3>
+          <p class="mt-2 text-sm text-white/72" data-i18n="partner.v2p"></p>
         </article>
-        <article class={benefit} data-aos="fade-up" data-aos-delay="160">
-          <h3 class="text-base" data-i18n="partner.v3t"></h3>
-          <p class="mt-2 text-sm text-dark-gray" data-i18n="partner.v3p"></p>
+        <article class={benefitGlass} data-aos="fade-up" data-aos-delay="160">
+          <h3 class="text-base font-medium" data-i18n="partner.v3t"></h3>
+          <p class="mt-2 text-sm text-white/72" data-i18n="partner.v3p"></p>
         </article>
-        <article class={benefit} data-aos="fade-up" data-aos-delay="240">
-          <h3 class="text-base" data-i18n="partner.v4t"></h3>
-          <p class="mt-2 text-sm text-dark-gray" data-i18n="partner.v4p"></p>
+        <article class={benefitGlass} data-aos="fade-up" data-aos-delay="240">
+          <h3 class="text-base font-medium" data-i18n="partner.v4t"></h3>
+          <p class="mt-2 text-sm text-white/72" data-i18n="partner.v4p"></p>
         </article>
       </div>
       <div class={sectionCta} data-aos="fade-up">
-        <a class={btnOnDark} href="/partner" data-i18n="home.partnerCta">Become a partner</a>
+        <a class={btnGreen} href="/partner" data-i18n="home.partnerCta">Become a partner</a>
       </div>
     </div>
   </section>
