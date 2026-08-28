@@ -93,7 +93,12 @@ export const field = "grid gap-1.5 text-[13px] font-semibold";
 export const input =
   "min-h-[46px] w-full rounded-2xl border border-border bg-white px-3.5 py-2.5 text-sm font-medium text-text shadow-card";
 
-export const faqItem =
-  "group mb-2.5 overflow-hidden rounded-[16px] border border-border bg-white shadow-card";
+export const faqCard =
+  "flex h-full flex-col overflow-hidden rounded-[20px] border border-border bg-white p-7 shadow-card";
+export const faqItem = `group ${faqCard}`;
+export const faqCta =
+  "flex h-full items-stretch justify-between gap-4 overflow-hidden rounded-[20px] border border-border bg-white p-7 shadow-card";
 export const chip =
   "rounded-[22px] bg-blue-soft px-3.5 py-2 text-[13px] font-bold text-blue-dark aria-pressed:bg-brand aria-pressed:text-white";
+export const chipGreen =
+  "rounded-[22px] px-3.5 py-2 text-[13px] font-bold aria-[pressed=false]:bg-blue-soft aria-[pressed=false]:text-blue-dark aria-pressed:bg-green-grad aria-pressed:text-white aria-pressed:shadow-card";
