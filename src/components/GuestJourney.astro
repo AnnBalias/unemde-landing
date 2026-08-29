@@ -1,0 +1,177 @@
+---
+const steps: {
+  t: string;
+  p: string;
+  shot: string;
+  title: string;
+  text: string;
+}[] = [
+  {
+    t: "guest.j1t",
+    p: "guest.j1p",
+    shot: "/imgs/unemde/u-login-l.jpg",
+    title: "Sign in with your number",
+    text: "Enter your phone number and confirm the code. No email, no password to remember.",
+  },
+  {
+    t: "guest.j2t",
+    p: "guest.j2p",
+    shot: "/imgs/unemde/u-mainpage-l.jpg",
+    title: "Discover",
+    text: "Nearby venues on a list or a map. Filter by category, rating, and distance. New deals and top picks near you.",
+  },
+  {
+    t: "guest.j3t",
+    p: "guest.j3p",
+    shot: "/imgs/unemde/u-restaurantpage-l.jpg",
+    title: "Open a venue",
+    text: "Photos, hours, payments, reviews, and directions. Pick a deal, choose a day and slot, then tap Book a Deal.",
+  },
+  {
+    t: "guest.j4t",
+    p: "guest.j4p",
+    shot: "/imgs/unemde/u-mydeals-l.jpg",
+    title: "My Deals",
+    text: "Booked offers wait here until you arrive. On site, swipe to activate or show a QR. Cancel if plans change.",
+  },
+  {
+    t: "guest.j5t",
+    p: "guest.j5p",
+    shot: "/imgs/unemde/u-qrcode-l.jpg",
+    title: "Show your QR",
+    text: "Staff scans the code, or you enter it manually. The deal is on for 30 minutes.",
+  },
+  {
+    t: "guest.j6t",
+    p: "guest.j6p",
+    shot: "/imgs/unemde/u-rating-l.jpg",
+    title: "Rate the visit",
+    text: "After the discount, say how it went. Your stars help the next guest choose.",
+  },
+  {
+    t: "guest.j7t",
+    p: "guest.j7p",
+    shot: "/imgs/unemde/u-completeddeals-l.jpg",
+    title: "Reclaimed",
+    text: "Used deals stay in history: date, order, total, payment. Savings you can actually see.",
+  },
+  {
+    t: "guest.j8t",
+    p: "guest.j8p",
+    shot: "/imgs/unemde/u-profile-l.jpg",
+    title: "Profile",
+    text: "Name, email, language, and theme. Your account, in one place.",
+  },
+  {
+    t: "guest.j9t",
+    p: "guest.j9p",
+    shot: "/imgs/unemde/u-favorites-l.jpg",
+    title: "Favourites",
+    text: "Heart a venue to find it later. Saved places and their live deals, ready for the next visit.",
+  },
+];
+---
+
+<div class="mt-4 w-full" data-aos="fade-up">
+  <div class="how-journey-scroll w-full overflow-x-auto overscroll-x-contain" data-guest-journey>
+    <div class="mx-auto mb-6 flex min-w-[2520px] w-max px-8 pt-5 sm:px-12 nav:px-16">
+      <ol class="m-0 grid w-[2520px] list-none grid-cols-9 gap-5 p-0">
+        {
+          steps.map((s) => (
+            <li>
+              <article
+                class="how-step group relative aspect-[9/19] w-full cursor-pointer overflow-hidden rounded-[20px] border border-border bg-bg-soft pb-2 shadow-card transition duration-300 outline-none motion-reduce:transition-none"
+                data-how-step
+                tabindex="0"
+              >
+                <div class="how-step-shot absolute inset-x-[18%] top-2.5 bottom-[calc(32%+0.625rem)] overflow-hidden rounded-[16px] bg-[#101820] p-[5px] shadow-[0_8px_24px_rgb(16_24_40/0.18)] transition-all duration-500 ease-out motion-reduce:transition-none">
+                  <div class="how-step-shot-inner h-full overflow-hidden rounded-[12px]">
+                    <img class="h-full w-full object-cover object-top" src={s.shot} alt="" />
+                  </div>
+                </div>
+                <div
+                  class="how-step-scrim pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,transparent_0%,transparent_48%,rgb(15_24_42/0.45)_68%,rgb(15_24_42/0.9)_100%)] opacity-0 transition-opacity duration-500 motion-reduce:transition-none"
+                  aria-hidden="true"
+                />
+                <div class="how-step-caption absolute inset-x-0 bottom-0 z-10 flex min-h-[32%] flex-col justify-center bg-white px-4 py-3.5 text-text transition-all duration-500 motion-reduce:transition-none">
+                  <h3 class="text-base leading-tight font-bold" data-i18n={s.t}>
+                    {s.title}
+                  </h3>
+                  <p class="how-step-text mt-1.5 line-clamp-3 text-xs leading-[1.35] text-dark-gray" data-i18n={s.p}>
+                    {s.text}
+                  </p>
+                </div>
+              </article>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</div>
+
+<style>
+  .how-step {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) {
+    transform: translateY(-0.25rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .how-step:is(:hover, :focus, [data-open]) {
+      transform: none;
+    }
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-shot {
+    inset: 0;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-shot-inner {
+    border-radius: 0;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-scrim {
+    opacity: 1;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-caption {
+    min-height: 0;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding-top: 2.5rem;
+    padding-bottom: 0.875rem;
+    color: #fff;
+  }
+
+  .how-step:is(:hover, :focus, [data-open]) .how-step-text {
+    color: rgb(255 255 255 / 0.85);
+  }
+
+  .how-journey-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-blue-light) rgb(70 107 185 / 0.12);
+  }
+
+  .how-journey-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .how-journey-scroll::-webkit-scrollbar-track {
+    background: rgb(70 107 185 / 0.12);
+  }
+
+  .how-journey-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--color-blue-dark), var(--color-blue-light));
+    border-radius: 999px;
+  }
+
+  .how-journey-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-blue-mid);
+  }
+</style>

@@ -62,6 +62,7 @@
   --background-image-app-alt: linear-gradient(180deg, #1f3053 0%, #314b82 100%);
   --animate-float-a: float-a 5.2s ease-in-out infinite;
   --animate-float-b: float-b 5.6s ease-in-out infinite;
+  --animate-float-solo: float-solo 5.6s ease-in-out infinite;
 }
 
 @keyframes float-a {
@@ -81,6 +82,16 @@
   }
   50% {
     transform: rotate(8deg) translateY(-10px);
+  }
+}
+
+@keyframes float-solo {
+  0%,
+  100% {
+    transform: rotate(3deg) translateY(0);
+  }
+  50% {
+    transform: rotate(3deg) translateY(-10px);
   }
 }
 

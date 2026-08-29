@@ -78,6 +78,43 @@ function closeHowSteps() {
   document.querySelectorAll("[data-how-step]").forEach((el) => el.removeAttribute("data-open"));
 }
 
+function initGuestJourney() {
+  document.querySelectorAll<HTMLElement>("[data-guest-journey]").forEach((root) => {
+    const existing = Number(root.dataset.guestTimer || "");
+    if (existing) window.clearInterval(existing);
+    delete root.dataset.guestTimer;
+
+    const steps = [...root.querySelectorAll<HTMLElement>("[data-how-step]")];
+    if (steps.length < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const isPaused = () => root.matches(":hover, :focus-visible, :focus-within");
+
+    const show = (index: number) => {
+      closeHowSteps();
+      const step = steps[index];
+      step.setAttribute("data-open", "");
+      const item = step.closest("li") ?? step;
+      const rootBox = root.getBoundingClientRect();
+      const itemBox = item.getBoundingClientRect();
+      root.scrollTo({
+        left: root.scrollLeft + (itemBox.left + itemBox.width / 2) - (rootBox.left + rootBox.width / 2),
+        behavior: "smooth",
+      });
+    };
+
+    let index = 0;
+    show(index);
+
+    const id = window.setInterval(() => {
+      if (isPaused()) return;
+      index = (index + 1) % steps.length;
+      show(index);
+    }, 2400);
+    root.dataset.guestTimer = String(id);
+  });
+}
+
 function initShotCarousels() {
   document.querySelectorAll<HTMLElement>("[data-shot-carousel]").forEach((root) => {
     const existing = Number(root.dataset.shotTimer || "");
@@ -319,6 +356,7 @@ async function onPageLoad() {
   closeNavMenu();
   bindListeners();
   initShotCarousels();
+  initGuestJourney();
   AOS.init({
     duration: 780,
     easing: "ease-out-cubic",
