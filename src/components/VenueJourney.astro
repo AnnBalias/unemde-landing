@@ -1,0 +1,36 @@
+---
+import AppJourney from "./AppJourney.astro";
+
+const steps = [
+  {
+    t: "biz.j1t",
+    p: "biz.j1p",
+    shot: "/imgs/unemde-business/ub-login-l.jpg",
+    title: "Sign in",
+    text: "Enter your phone number and confirm the code. New venues tap Sign Up to register the establishment.",
+  },
+  {
+    t: "biz.j2t",
+    p: "biz.j2p",
+    shot: "/imgs/unemde-business/ub-restaurantdetails-l.jpg",
+    title: "Edit your storefront",
+    text: "Name, photo, address, hours, payments. Create deals: 1+1, 30% off, coffee 2+1, quantity and terms.",
+  },
+  {
+    t: "biz.j3t",
+    p: "biz.j3p",
+    shot: "/imgs/unemde-business/ub-bookingcalendar-l.jpg",
+    title: "Booking calendar",
+    text: "Pick a day and see slots: available or booked with guest name and deal. Who is coming, and when.",
+  },
+  {
+    t: "biz.j4t",
+    p: "biz.j4p",
+    shot: "/imgs/unemde-business/ub-scanner-l.jpg",
+    title: "Scan at the counter",
+    text: "Allow the camera for the guest QR, or enter a code by hand. Activate — the discount runs until it expires.",
+  },
+];
+---
+
+<AppJourney steps={steps} />
