@@ -1,6 +1,6 @@
 ---
 import { TELEGRAM_URL, WHATSAPP_URL } from "../data/contacts";
-import ReachMap from "./ReachMap.astro";
+import PartnerLogos from "./PartnerLogos.astro";
 import {
   benefitGlass,
   benefits,
@@ -16,7 +16,6 @@ import {
 const stats = [
   { n: "partner.s1n", t: "partner.s1t", fallbackN: "368+", fallbackT: "Active partner locations across the region" },
   { n: "partner.s2n", t: "partner.s2t", fallbackN: "50k+", fallbackT: "Monthly active users discovering deals" },
-  { n: "partner.s3n", t: "partner.s3t", fallbackN: "4.8★", fallbackT: "Average partner satisfaction rating" },
 ] as const;
 ---
 
@@ -48,33 +47,31 @@ const stats = [
     </div>
   </div>
 
-  <div class={`${wrap} pt-4`}>
-    <div class="text-center">
+  <div class="pt-4">
+    <div class={`${wrap} text-center`}>
       <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="partner.reach">Our partners</h2>
       <p class="mt-3 text-base text-dark-gray" data-aos="fade-up" data-i18n="partner.reachSub">
-        See where UNEMDE partners are active — click the dots!
+        Local venues already growing with UNEMDE.
       </p>
     </div>
-    <div class="mt-8 grid grid-cols-1 items-stretch gap-5 nav:grid-cols-[minmax(15.5rem,0.36fr)_minmax(0,1fr)]">
-      <div class="grid gap-5">
-        {
-          stats.map((item, i) => (
-            <div
-              class="overflow-hidden rounded-[20px] border border-border bg-white p-7 shadow-card"
-              data-aos="fade-up"
-              data-aos-delay={i * 80}
-            >
-              <b class="block text-[28px] text-blue-dark" data-i18n={item.n}>
-                {item.fallbackN}
-              </b>
-              <span class="mt-2 block text-sm text-dark-gray" data-i18n={item.t}>
-                {item.fallbackT}
-              </span>
-            </div>
-          ))
-        }
-      </div>
-      <ReachMap />
+    <PartnerLogos />
+    <div class={`${wrap} mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2`}>
+      {
+        stats.map((item, i) => (
+          <div
+            class="overflow-hidden rounded-[20px] border border-border bg-white p-7 shadow-card"
+            data-aos="fade-up"
+            data-aos-delay={i * 80}
+          >
+            <b class="block text-[28px] text-blue-dark" data-i18n={item.n}>
+              {item.fallbackN}
+            </b>
+            <span class="mt-2 block text-sm text-dark-gray" data-i18n={item.t}>
+              {item.fallbackT}
+            </span>
+          </div>
+        ))
+      }
     </div>
   </div>
 
