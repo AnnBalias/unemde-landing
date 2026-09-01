@@ -88,11 +88,6 @@ export const city = "rounded-card bg-white p-5 text-center text-text shadow-card
 
 export const partnerGrid =
   "grid grid-cols-1 items-start gap-5 nav:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]";
-export const partnerForm =
-  "mx-auto mt-8 grid w-full max-w-[1040px] grid-cols-1 items-stretch gap-5 rounded-[20px] border border-border bg-white p-7 text-text shadow-card nav:grid-cols-[1fr_2fr] nav:gap-x-10";
-export const field = "grid gap-1.5 text-[13px] font-semibold";
-export const input =
-  "min-h-[46px] w-full rounded-2xl border border-border bg-white px-3.5 py-2.5 text-sm font-medium text-text shadow-card";
 
 export const faqCard =
   "flex h-full flex-col overflow-hidden rounded-[20px] border border-border bg-white p-7 shadow-card";

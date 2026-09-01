@@ -383,16 +383,6 @@ function bindListeners() {
     }
   });
 
-  document.addEventListener("submit", (event) => {
-    const form = (event.target as HTMLElement | null)?.closest?.("#partnerForm");
-    if (!form || !(form instanceof HTMLFormElement)) return;
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    form.reset();
-    const ok = document.getElementById("partnerOk");
-    if (ok) ok.hidden = false;
-  });
-
   window.addEventListener(
     "scroll",
     () => {

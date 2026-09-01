@@ -1,5 +1,6 @@
 ---
 import { NAV_LINKS, type PageId } from "../i18n/config";
+import { LINKEDIN_URL } from "../data/contacts";
 import { wrap } from "../lib/ui";
 import Logo from "./Logo.astro";
 
@@ -31,7 +32,7 @@ const { page } = Astro.props;
     </nav>
     <a
       class="inline-flex size-9 shrink-0 items-center justify-center rounded-[10px] border border-white/28 bg-white/14 text-white transition duration-200 hover:-translate-y-px hover:bg-white/22"
-      href="https://www.linkedin.com/company/unemde/"
+      href={LINKEDIN_URL}
       target="_blank"
       rel="noreferrer"
       data-i18n="footer.linkedin"
