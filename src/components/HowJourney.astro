@@ -1,9 +1,5 @@
 ---
-type Side = "venue" | "guest";
-
 const steps: {
-  n: string;
-  side: Side;
   t: string;
   p: string;
   shot: string;
@@ -11,17 +7,6 @@ const steps: {
   text: string;
 }[] = [
   {
-    n: "01",
-    side: "venue",
-    t: "how.h1t",
-    p: "how.h1p",
-    shot: "/imgs/unemde-business/ub-restaurantdetails-l.jpg",
-    title: "Set the offer",
-    text: "The venue publishes a deal in UNEMDE Business — what, when, and on what terms.",
-  },
-  {
-    n: "02",
-    side: "guest",
     t: "how.h2t",
     p: "how.h2p",
     shot: "/imgs/unemde/u-mainpage-l.jpg",
@@ -29,8 +14,6 @@ const steps: {
     text: "The guest finds the venue on the map or in the list and picks a deal that fits.",
   },
   {
-    n: "03",
-    side: "guest",
     t: "how.h3t",
     p: "how.h3p",
     shot: "/imgs/unemde/u-restaurantpage-l.jpg",
@@ -38,8 +21,6 @@ const steps: {
     text: "A day and a time slot — the visit is planned, not a coupon for later.",
   },
   {
-    n: "04",
-    side: "guest",
     t: "how.h4t",
     p: "how.h4p",
     shot: "/imgs/unemde/u-mydeals-l.jpg",
@@ -47,17 +28,6 @@ const steps: {
     text: "The guest shows up. The booking is ready to activate on-site.",
   },
   {
-    n: "05",
-    side: "venue",
-    t: "how.h5t",
-    p: "how.h5p",
-    shot: "/imgs/unemde-business/ub-scanner-l.jpg",
-    title: "Confirm",
-    text: "Staff scans the QR or the guest swipes. The deal is on for 30 minutes.",
-  },
-  {
-    n: "06",
-    side: "guest",
     t: "how.h6t",
     p: "how.h6p",
     shot: "/imgs/unemde/u-rating-l.jpg",
@@ -69,24 +39,24 @@ const steps: {
 
 <div class="mt-4 w-full" data-aos="fade-up">
   <!--
-    overflow-x clips shadows — pad the scroll CONTENT so first/last card
-    shadows stay inside the scrollport. Inner relative box stays full grid width
-    so the step line still aligns to node centers.
+    w-max + min-w-full: when the track fits, it stays centered; when it
+    overflows, the inner box grows with the cards so both edges are reachable.
+    Horizontal padding lives on that inner box so shadows aren't clipped.
   -->
   <div class="how-journey-scroll w-full overflow-x-auto overscroll-x-contain">
-    <div class="mb-8 mx-auto flex min-w-[1200px] w-full max-w-[1440px] px-8 pt-5 sm:px-12 nav:px-16">
-      <div class="relative w-full min-w-0">
-        <ol class="m-0 grid list-none grid-cols-6 gap-4 p-0 sm:gap-5">
+    <div class="mb-8 flex w-max min-w-full justify-center px-8 pt-5 sm:px-12 nav:px-16">
+      <div class="relative w-[868px] shrink-0">
+        <ol class="m-0 grid list-none grid-cols-4 gap-4 p-0 sm:gap-5">
         {
-          steps.map((s) => (
+          steps.map((s, i) => {
+            const n = String(i + 1).padStart(2, "0");
+            const last = i === steps.length - 1;
+            return (
             <li class="flex flex-col items-center">
               <article
                 class:list={[
-                  "how-step group relative aspect-[9/19] w-full cursor-pointer overflow-hidden rounded-[20px] transition duration-300 outline-none motion-reduce:transition-none",
-                  s.side === "venue"
-                    ? "pb-2 bg-blue-dark shadow-[0_12px_32px_rgb(31_48_83/0.28)]"
-                    : "pb-2 border border-border bg-bg-soft shadow-card",
-                  s.n === "06" && "ring-1 ring-green-light/30",
+                  "how-step group relative aspect-[9/19] w-full cursor-pointer overflow-hidden rounded-[20px] border border-border bg-bg-soft pb-2 shadow-card transition duration-300 outline-none motion-reduce:transition-none",
+                  last && "ring-1 ring-green-light/30",
                 ]}
                 data-how-step
                 tabindex="0"
@@ -108,28 +78,13 @@ const steps: {
 
                 {/* Caption: solid panel at rest → overlay when previewed */}
                 <div
-                  class:list={[
-                    "how-step-caption absolute inset-x-0 bottom-0 z-10 flex min-h-[34%] flex-col justify-center px-3 py-3 transition-all duration-500 motion-reduce:transition-none",
-                    s.side === "venue" ? "bg-blue-dark text-white" : "bg-white text-text",
-                  ]}
+                  class="how-step-caption absolute inset-x-0 bottom-0 z-10 flex min-h-[34%] flex-col justify-center bg-white px-3 py-3 text-text transition-all duration-500 motion-reduce:transition-none"
                 >
-                  <p
-                    class:list={[
-                      "how-step-kicker text-[10px] font-bold tracking-[0.08em] uppercase",
-                      s.side === "venue" ? "text-white/55" : "text-blue-light",
-                    ]}
-                    data-i18n={s.side === "venue" ? "how.venue" : "how.guest"}
-                  >
-                    {s.side === "venue" ? "Venue" : "Guest"}
-                  </p>
-                  <h3 class="mt-1 text-[15px] leading-tight font-bold" data-i18n={s.t}>
+                  <h3 class="text-[15px] leading-tight font-bold" data-i18n={s.t}>
                     {s.title}
                   </h3>
                   <p
-                    class:list={[
-                      "how-step-text mt-1.5 line-clamp-3 text-[11px] leading-4",
-                      s.side === "venue" ? "text-white/68" : "text-dark-gray",
-                    ]}
+                    class="how-step-text mt-1.5 line-clamp-3 text-[11px] leading-4 text-dark-gray"
                     data-i18n={s.p}
                   >
                     {s.text}
@@ -142,23 +97,20 @@ const steps: {
                 <div
                   class:list={[
                     "relative z-10 grid size-10 place-items-center rounded-full border-4 border-white text-[12px] font-bold text-white shadow-card",
-                    s.n === "06"
-                      ? "bg-green-light"
-                      : s.side === "venue"
-                        ? "bg-blue-dark"
-                        : "bg-blue-light",
+                    last ? "bg-green-light" : "bg-blue-light",
                   ]}
                 >
-                  {s.n}
+                  {n}
                 </div>
               </div>
             </li>
-          ))
+            );
+          })
         }
       </ol>
 
       <div
-        class="pointer-events-none absolute right-[calc(100%/12)] bottom-[20px] left-[calc(100%/12)] h-px bg-[linear-gradient(90deg,#1f3053_0%,#456bb9_55%,#359752_100%)]"
+        class="pointer-events-none absolute right-[calc(100%/8)] bottom-[20px] left-[calc(100%/8)] h-px bg-[linear-gradient(90deg,#1f3053_0%,#456bb9_55%,#359752_100%)]"
         aria-hidden="true"
       />
       </div>
@@ -203,10 +155,6 @@ const steps: {
     padding-top: 2.5rem;
     padding-bottom: 0.875rem;
     color: #fff;
-  }
-
-  .how-step:is(:hover, :focus, [data-open]) .how-step-kicker {
-    color: rgb(255 255 255 / 0.75);
   }
 
   .how-step:is(:hover, :focus, [data-open]) .how-step-text {
