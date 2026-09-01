@@ -23,9 +23,9 @@ export const sub = "mt-3 max-w-xl text-base text-dark-gray";
 export const subOnNavy = "mt-3 text-base text-white/72";
 
 export const hero =
-  "relative mx-4 overflow-hidden rounded-[20px] bg-brand px-20 pt-8 pb-32 text-white max-nav:px-5 max-nav:pt-16 max-nav:pb-7 before:pointer-events-none before:absolute before:-top-[120px] before:-right-20 before:size-[520px] before:rounded-full before:bg-[radial-gradient(circle,rgb(255_255_255/0.12),transparent_68%)] before:content-['']";
+  "relative mx-4 overflow-hidden rounded-[20px] bg-brand px-20 pt-12 pb-32 text-white max-nav:px-5 max-nav:pt-14 max-nav:pb-7 before:pointer-events-none before:absolute before:-top-[120px] before:-right-20 before:size-[520px] before:rounded-full before:bg-[radial-gradient(circle,rgb(255_255_255/0.12),transparent_68%)] before:content-['']";
 export const pageHero =
-  "relative mx-4 overflow-hidden rounded-[20px] bg-brand px-20 py-12 text-white max-nav:px-5 max-nav:py-14 before:pointer-events-none before:absolute before:-top-[140px] before:-right-[90px] before:size-[420px] before:rounded-full before:bg-[radial-gradient(circle,rgb(255_255_255/0.12),transparent_68%)] before:content-['']";
+  "relative mx-4 overflow-hidden rounded-[20px] bg-brand px-20 pt-12 pb-12 text-white max-nav:px-5 max-nav:pt-14 max-nav:pb-14 before:pointer-events-none before:absolute before:-top-[140px] before:-right-[90px] before:size-[420px] before:rounded-full before:bg-[radial-gradient(circle,rgb(255_255_255/0.12),transparent_68%)] before:content-['']";
 export const heroGrid =
   "relative grid grid-cols-1 items-center gap-8 nav:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.9fr)] nav:gap-10";
 export const heroTitle =
