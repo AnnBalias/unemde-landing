@@ -99,6 +99,7 @@
   html {
     scroll-behavior: smooth;
     min-width: 320px;
+    min-height: 100dvh;
     scrollbar-gutter: stable;
   }
 
@@ -122,6 +123,7 @@
     background: var(--color-bg);
     line-height: 1.5;
     min-width: 320px;
+    min-height: 100dvh;
     -webkit-font-smoothing: antialiased;
   }
 

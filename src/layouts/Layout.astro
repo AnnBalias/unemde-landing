@@ -25,9 +25,9 @@ const meta = PAGE_META[page];
     <ClientRouter />
   </head>
   <body data-page={page} data-title-key={meta.titleKey} data-desc-key={meta.descKey}>
-    <div class="mx-auto w-full min-w-[320px] max-w-[1440px]">
+    <div class="mx-auto flex min-h-dvh w-full min-w-[320px] max-w-[1440px] flex-col">
       <Header page={page} />
-      <main>
+      <main class="flex-1">
         <slot />
       </main>
       <Footer page={page} />
