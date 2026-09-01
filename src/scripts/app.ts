@@ -1,12 +1,10 @@
 import AOS from "aos";
 import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import cs from "../i18n/locales/cs.json";
 import en from "../i18n/locales/en.json";
 import kk from "../i18n/locales/kk.json";
 import ru from "../i18n/locales/ru.json";
-import uk from "../i18n/locales/uk.json";
-import { LANGS, LANG_OPTIONS, type Lang } from "../i18n/config";
+import { DEFAULT_LANG, LANGS, LANG_OPTIONS, type Lang } from "../i18n/config";
 
 let i18nReady = false;
 let listenersBound = false;
@@ -22,7 +20,7 @@ function syncActiveNav() {
 }
 
 function applyI18n(refreshMotion = false) {
-  document.documentElement.lang = i18next.resolvedLanguage || "en";
+  document.documentElement.lang = i18next.resolvedLanguage || DEFAULT_LANG;
   const titleKey = document.body.dataset.titleKey || "meta.title";
   document.title = i18next.t(titleKey);
 
@@ -50,11 +48,11 @@ function applyI18n(refreshMotion = false) {
 }
 
 function langLabel(lang: string) {
-  return LANG_OPTIONS.find((item) => item.value === lang)?.label ?? "EN";
+  return LANG_OPTIONS.find((item) => item.value === lang)?.label ?? "RU";
 }
 
 function syncLangSwitch() {
-  const lang = i18next.resolvedLanguage || "en";
+  const lang = i18next.resolvedLanguage || DEFAULT_LANG;
   const current = document.getElementById("langCurrent");
   if (current) current.textContent = langLabel(lang);
   document.querySelectorAll<HTMLElement>("[data-lang]").forEach((btn) => {
@@ -205,14 +203,12 @@ async function ensureI18n() {
   if (i18nReady) return;
   await i18next.use(LanguageDetector).init({
     resources: {
-      uk: { translation: uk },
-      en: { translation: en },
-      cs: { translation: cs },
-      kk: { translation: kk },
       ru: { translation: ru },
+      kk: { translation: kk },
+      en: { translation: en },
     },
-    lng: "en",
-    fallbackLng: "en",
+    lng: DEFAULT_LANG,
+    fallbackLng: DEFAULT_LANG,
     supportedLngs: [...LANGS],
     nonExplicitSupportedLngs: true,
     load: "languageOnly",

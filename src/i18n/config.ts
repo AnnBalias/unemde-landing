@@ -1,12 +1,11 @@
-export const LANGS = ["en", "uk", "cs", "kk", "ru"] as const;
+export const LANGS = ["ru", "kk", "en"] as const;
 export type Lang = (typeof LANGS)[number];
+export const DEFAULT_LANG: Lang = "ru";
 
 export const LANG_OPTIONS: { value: Lang; label: string }[] = [
-  { value: "en", label: "EN" },
-  { value: "uk", label: "UA" },
-  { value: "cs", label: "CS" },
-  { value: "kk", label: "KK" },
   { value: "ru", label: "RU" },
+  { value: "kk", label: "KK" },
+  { value: "en", label: "EN" },
 ];
 
 export const PAGES = ["home", "guest", "venue", "faq"] as const;
