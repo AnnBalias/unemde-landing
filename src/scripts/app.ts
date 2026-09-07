@@ -76,24 +76,6 @@ function closeHowSteps() {
   document.querySelectorAll("[data-how-step]").forEach((el) => el.removeAttribute("data-open"));
 }
 
-function closeReachPins() {
-  document.querySelectorAll("[data-reach-pin]").forEach((el) => el.removeAttribute("data-open"));
-}
-
-function raiseReachPin(pin: Element) {
-  const wrap = pin.parentElement;
-  const parent = wrap?.parentElement;
-  if (!wrap || !parent || parent.lastElementChild === wrap) return;
-  parent.appendChild(wrap);
-}
-
-function setReachPinOpen(pin: Element | null, map?: Element | null) {
-  const root = map ?? pin?.closest("[data-reach-map]") ?? document;
-  root.querySelectorAll("[data-reach-pin]").forEach((el) => {
-    el.toggleAttribute("data-open", el === pin);
-  });
-}
-
 function initAppJourney() {
   document.querySelectorAll<HTMLElement>("[data-app-journey]").forEach((root) => {
     const existing = Number(root.dataset.appTimer || "");
@@ -264,16 +246,7 @@ function bindListeners() {
       toggleHowStep(howStep);
       return;
     }
-
-    const reachPin = target.closest("[data-reach-pin]");
-    if (reachPin) {
-      closeHowSteps();
-      raiseReachPin(reachPin);
-      setReachPinOpen(reachPin);
-      return;
-    }
     closeHowSteps();
-    closeReachPins();
 
     const faqBtn = target.closest("[data-faq-item] > button");
     if (faqBtn) {
@@ -303,22 +276,6 @@ function bindListeners() {
     }
   });
 
-  document.addEventListener("pointerover", (event) => {
-    const pin = event.target instanceof Element ? event.target.closest("[data-reach-pin]") : null;
-    if (!pin) return;
-    raiseReachPin(pin);
-    if (event.pointerType === "mouse") setReachPinOpen(pin);
-  });
-
-  document.addEventListener("pointerout", (event) => {
-    if (event.pointerType !== "mouse") return;
-    const pin = event.target instanceof Element ? event.target.closest("[data-reach-pin]") : null;
-    if (!pin) return;
-    const next = event.relatedTarget instanceof Element ? event.relatedTarget.closest("[data-reach-pin]") : null;
-    if (next === pin) return;
-    pin.removeAttribute("data-open");
-  });
-
   document.addEventListener("keydown", (event) => {
     const menu = document.getElementById("langMenu");
     const open = Boolean(menu && !menu.hidden);
@@ -333,29 +290,14 @@ function bindListeners() {
     if (event.key === "Escape") {
       closeNavMenu();
       const focusedStep = document.activeElement?.closest?.("[data-how-step]");
-      const focusedPin = document.activeElement?.closest?.("[data-reach-pin]");
       closeHowSteps();
-      closeReachPins();
       if (focusedStep instanceof HTMLElement) focusedStep.blur();
-      if (focusedPin instanceof HTMLElement) focusedPin.blur();
     }
 
     const howStep = event.target instanceof HTMLElement ? event.target.closest("[data-how-step]") : null;
     if (howStep instanceof HTMLElement && howStep === event.target && (event.key === "Enter" || event.key === " ")) {
       event.preventDefault();
       toggleHowStep(howStep);
-      return;
-    }
-
-    const reachPinKey = event.target instanceof Element ? event.target.closest("[data-reach-pin]") : null;
-    if (reachPinKey && (event.key === "Enter" || event.key === " ")) {
-      event.preventDefault();
-      raiseReachPin(reachPinKey);
-      const wasOpen = reachPinKey.hasAttribute("data-open");
-      const map = reachPinKey.closest("[data-reach-map]");
-      map?.querySelectorAll("[data-reach-pin]").forEach((el) => {
-        el.toggleAttribute("data-open", !wasOpen && el === reachPinKey);
-      });
       return;
     }
 

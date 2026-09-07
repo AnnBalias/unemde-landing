@@ -1,7 +1,7 @@
 ---
-import PartnerSection from "../components/PartnerSection.astro";
-import PhoneShot from "../components/PhoneShot.astro";
-import VenueJourney from "../components/VenueJourney.astro";
+import PhoneShot from "../components/shared/PhoneShot.astro";
+import PartnerSection from "../components/venue/PartnerSection.astro";
+import VenueJourney from "../components/venue/VenueJourney.astro";
 import Layout from "../layouts/Layout.astro";
 import { btnGhost, check, h2, hero, heroCta, heroTitle, lead, phones, wrap } from "../lib/ui";
 ---
@@ -34,7 +34,7 @@ import { btnGhost, check, h2, hero, heroCta, heroTitle, lead, phones, wrap } fro
           </li>
         </ul>
         <div class={heroCta} data-aos="fade-up">
-          <a class={btnGhost} href="#partner-form" data-i18n="home.partnerCta">Become a partner</a>
+          <a class={btnGhost} href="#partner-contact" data-i18n="home.partnerCta">Become a partner</a>
         </div>
       </div>
       <div class={`${phones} max-nav:mx-auto nav:ml-auto nav:mr-0`} aria-hidden="true">

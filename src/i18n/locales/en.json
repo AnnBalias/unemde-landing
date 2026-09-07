@@ -9,20 +9,14 @@
     "venueTitle": "UNEMDE Business for venues",
     "venueDescription": "Storefront, deals, QR scanner, and booking calendar for cafés and restaurants.",
     
-    "partnerTitle": "UNEMDE — become a partner",
-    "partnerDescription": "Partner benefits and an application form for venues.",
-    
     "faqTitle": "UNEMDE — FAQ",
     "faqDescription": "Answers about deals, accounts, and UNEMDE partnership."
   },
 
   "nav": {
-    "how": "How it works",
     "guests": "For guests",
     "business": "For venues",
-    "apps": "Apps",
     "faq": "FAQ",
-    "partner": "Become a Partner",
     "cta": "Get the app",
     "menu": "Menu",
     "lang": "Language"
@@ -214,11 +208,8 @@
     "a13": "UNEMDE Business gives you the scanner, booking calendar, and stats (total deals, average bill) in the venue profile."
   },
   "partner": {
-    "kicker": "Become a Partner",
     "title": "Grow your business with UNEMDE",
     "sub": "Join local businesses already reaching new customers every day through our platform.",
-    "why": "Why partner with us?",
-    "whySub": "Everything you need to attract more customers",
     "v1t": "More visibility",
     "v1p": "Get featured in the app in front of thousands of active local users daily.",
     "v2t": "Real analytics",
@@ -229,18 +220,14 @@
     "v4p": "Our partner team is available 7 days a week to help you grow.",
     "reach": "Our partners",
     "reachSub": "Local venues already growing with UNEMDE.",
-    "countryCz": "Czechia",
-    "countrySk": "Slovakia",
-    "formTitle": "Ready to join? Let’s talk.",
-    "formSub": "Write to us on WhatsApp or Telegram — our partnership team replies within 24 hours.",
+    "contactTitle": "Ready to join? Let’s talk.",
+    "contactSub": "Write to us on WhatsApp or Telegram — our partnership team replies within 24 hours.",
     "whatsapp": "WhatsApp",
     "telegram": "Telegram",
     "s1n": "368+",
     "s1t": "Active partner locations across the region",
     "s2n": "50k+",
-    "s2t": "Monthly active users discovering deals",
-    "s3n": "4.8★",
-    "s3t": "Average partner satisfaction rating"
+    "s2t": "Monthly active users discovering deals"
   },
   "footer": {
     "note": "Guests and venues · local deals · on-site activation",

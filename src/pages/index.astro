@@ -1,8 +1,8 @@
 ---
-import FaqItem from "../components/FaqItem.astro";
-import HowJourney from "../components/HowJourney.astro";
-import PhoneShot from "../components/PhoneShot.astro";
-import ShotCarousel from "../components/ShotCarousel.astro";
+import FaqItem from "../components/faq/FaqItem.astro";
+import HowJourney from "../components/home/HowJourney.astro";
+import ShotCarousel from "../components/home/ShotCarousel.astro";
+import PhoneShot from "../components/shared/PhoneShot.astro";
 import Layout from "../layouts/Layout.astro";
 import {
   appCard,
@@ -158,7 +158,7 @@ const venueShots = [
         </article>
       </div>
       <div class={sectionCta} data-aos="fade-up">
-        <a class={btnGreen} href="/venue#partner-form" data-i18n="home.partnerCta">Become a partner</a>
+        <a class={btnGreen} href="/venue#partner-contact" data-i18n="home.partnerCta">Become a partner</a>
       </div>
     </div>
   </section>
