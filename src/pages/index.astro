@@ -53,36 +53,36 @@ const venueShots = [
   <section class={hero}>
     <div class={`${wrap} ${heroGrid}`}>
       <div>
-        <h1 class={heroTitle} data-aos="fade-up" data-i18n="hero.title">Find your deal!</h1>
-        <p class={lead} data-aos="fade-up" data-i18n="hero.lead">
+        <h1 class={heroTitle} data-i18n="hero.title">Find your deal!</h1>
+        <p class={lead} data-i18n="hero.lead">
           UNEMDE is a mobile marketplace for local café and restaurant deals. Guests find a venue on the map, book a
           slot, and redeem on-site. Venues manage offers and scan QR codes in UNEMDE Business.
         </p>
-        <div class={heroCta} data-aos="fade-up">
+        <div class={heroCta}>
           <a class={btnGhost} href="/guest" data-i18n="hero.ctaGuest">I’m a guest</a>
           <a class={btnOnDark} href="/venue" data-i18n="hero.ctaBiz">I’m a venue</a>
         </div>
       </div>
       <div class={phones} aria-hidden="true">
-        <PhoneShot src="/imgs/unemde/u-mainpage-l.jpg" motion="a" aos="fade-right" />
-        <PhoneShot src="/imgs/unemde-business/ub-scanner-l.jpg" motion="b" aos="fade-left" delay={120} />
+        <PhoneShot src="/imgs/unemde/u-mainpage-l.jpg" motion="a" />
+        <PhoneShot src="/imgs/unemde-business/ub-scanner-l.jpg" motion="b" />
       </div>
     </div>
   </section>
 
   <section class="overflow-visible pt-10 pb-0" id="how">
     <div class={`${wrap} text-center`}>
-      <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="how.homeTitle">From offer to enjoy</h2>
+      <h2 class={`${h2} mt-0`} data-i18n="how.homeTitle">From offer to enjoy</h2>
     </div>
     <HowJourney />
   </section>
 
   <section class="overflow-visible pt-6 pb-3">
     <div class={`${wrap} text-center`}>
-      <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="home.chooseTitle">What we offer</h2>
+      <h2 class={`${h2} mt-0`} data-i18n="home.chooseTitle">What we offer</h2>
     </div>
     <div class={`${wrap} ${apps}`}>
-      <article class={appCard} data-aos="fade-up">
+      <article class={appCard}>
         <div class="flex min-w-0 flex-col">
           <h3 class="text-2xl font-bold">UNEMDE</h3>
           <span class={`${badge} mt-3 w-fit`} data-i18n="apps.gTitle">For guests</span>
@@ -106,7 +106,7 @@ const venueShots = [
         </div>
         <ShotCarousel shots={guestShots} />
       </article>
-      <article class={appCardAlt} data-aos="fade-up" data-aos-delay="120">
+      <article class={appCardAlt}>
         <div class="flex min-w-0 flex-col">
           <h3 class="text-2xl font-bold">UNEMDE Business</h3>
           <span class={`${badgeAlt} mt-3 w-fit`} data-i18n="apps.bTitle">For venues</span>
@@ -135,8 +135,8 @@ const venueShots = [
 
   <section class={sectionBrand}>
     <div class={wrapPad}>
-      <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="partner.title">Grow your business with UNEMDE</h2>
-      <p class={subOnNavy} data-aos="fade-up" data-i18n="partner.sub">
+      <h2 class={`${h2} mt-0`} data-i18n="partner.title">Grow your business with UNEMDE</h2>
+      <p class={subOnNavy} data-i18n="partner.sub">
         Join local businesses already reaching new customers every day through our platform.
       </p>
       <div class={benefits}>
@@ -157,7 +157,7 @@ const venueShots = [
           <p class="mt-2 text-sm text-white/72" data-i18n="partner.v4p"></p>
         </article>
       </div>
-      <div class={sectionCta} data-aos="fade-up">
+      <div class={sectionCta}>
         <a class={btnGreen} href="/venue#partner-contact" data-i18n="home.partnerCta">Become a partner</a>
       </div>
     </div>
@@ -165,9 +165,9 @@ const venueShots = [
 
   <section class="overflow-visible pt-10 pb-16">
     <div class={`${wrap} text-center`}>
-      <h2 class={`${h2} mt-0`} data-aos="fade-up" data-i18n="home.faqTitle">Top questions</h2>
+      <h2 class={`${h2} mt-0`} data-i18n="home.faqTitle">Top questions</h2>
     </div>
-    <div class={`${wrap} ${apps}`} data-aos="fade-up">
+    <div class={`${wrap} ${apps}`}>
       <FaqItem q="faq.q1" a="faq.a1" alwaysOpen />
       <FaqItem q="faq.q4" a="faq.a4" alwaysOpen />
       <FaqItem q="faq.q11" a="faq.a11" alwaysOpen />

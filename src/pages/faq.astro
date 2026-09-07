@@ -31,7 +31,7 @@ const questions = [
 
   <section class="py-16">
     <div class={`${wrap} max-w-[760px]`}>
-      <div class="mb-5 flex flex-wrap gap-2" data-aos="fade-up">
+      <div class="mb-5 flex flex-wrap gap-2">
         <button type="button" class={chipGreen} data-faq-filter="all" aria-pressed="true" data-i18n="faq.all"></button>
         <button type="button" class={chip} data-faq-filter="general" aria-pressed="false" data-i18n="faq.general"></button>
         <button type="button" class={chip} data-faq-filter="deals" aria-pressed="false" data-i18n="faq.deals"></button>
@@ -39,7 +39,7 @@ const questions = [
         <button type="button" class={chip} data-faq-filter="partners" aria-pressed="false" data-i18n="faq.partners"></button>
       </div>
       <p class="mb-5 text-dark-gray" id="faqEmpty" hidden data-i18n="faq.empty"></p>
-      <div class="grid grid-cols-1 gap-5" data-aos="fade-up">
+      <div class="grid grid-cols-1 gap-5">
         {questions.map((item) => <FaqItem q={item.q} a={item.a} cat={item.cat} />)}
         <article class={faqCta}>
           <div class="min-w-0">

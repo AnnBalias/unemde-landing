@@ -9,6 +9,13 @@ import { DEFAULT_LANG, LANGS, LANG_OPTIONS, type Lang } from "../i18n/config";
 let i18nReady = false;
 let listenersBound = false;
 let aosReady = false;
+const journeyTimers: number[] = [];
+const shotTimers: number[] = [];
+
+function clearTimers(ids: number[]) {
+  for (const id of ids) window.clearInterval(id);
+  ids.length = 0;
+}
 
 function syncActiveNav() {
   const page = document.body.dataset.page;
@@ -78,48 +85,41 @@ function closeHowSteps() {
 }
 
 function initAppJourney() {
+  clearTimers(journeyTimers);
   document.querySelectorAll<HTMLElement>("[data-app-journey]").forEach((root) => {
-    const existing = Number(root.dataset.appTimer || "");
-    if (existing) window.clearInterval(existing);
-    delete root.dataset.appTimer;
-
     const steps = [...root.querySelectorAll<HTMLElement>("[data-how-step]")];
     if (steps.length < 2) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const isPaused = () => root.matches(":hover, :focus-visible, :focus-within");
 
-    const show = (index: number) => {
-      closeHowSteps();
+    const show = (index: number, smooth = true) => {
+      for (const el of steps) el.toggleAttribute("data-open", el === steps[index]);
       const step = steps[index];
-      step.setAttribute("data-open", "");
       const item = step.closest("li") ?? step;
       const rootBox = root.getBoundingClientRect();
       const itemBox = item.getBoundingClientRect();
       root.scrollTo({
         left: root.scrollLeft + (itemBox.left + itemBox.width / 2) - (rootBox.left + rootBox.width / 2),
-        behavior: "smooth",
+        behavior: smooth ? "smooth" : "instant",
       });
     };
 
     let index = 0;
-    show(index);
+    show(index, false);
 
     const id = window.setInterval(() => {
       if (isPaused()) return;
       index = (index + 1) % steps.length;
       show(index);
     }, 2400);
-    root.dataset.appTimer = String(id);
+    journeyTimers.push(id);
   });
 }
 
 function initShotCarousels() {
+  clearTimers(shotTimers);
   document.querySelectorAll<HTMLElement>("[data-shot-carousel]").forEach((root) => {
-    const existing = Number(root.dataset.shotTimer || "");
-    if (existing) window.clearInterval(existing);
-    delete root.dataset.shotTimer;
-
     const slides = [...root.querySelectorAll<HTMLElement>("[data-shot]")];
     if (slides.length < 2) return;
 
@@ -135,7 +135,7 @@ function initShotCarousels() {
       index = (index + 1) % slides.length;
       slides[index].classList.add("is-active");
     }, 1500);
-    root.dataset.shotTimer = String(id);
+    shotTimers.push(id);
   });
 }
 
@@ -360,6 +360,12 @@ async function onPageLoad() {
   const hashId = window.location.hash.slice(1);
   if (hashId) document.getElementById(hashId)?.scrollIntoView();
 }
+
+document.addEventListener("astro:before-swap", () => {
+  clearTimers(journeyTimers);
+  clearTimers(shotTimers);
+  closeHowSteps();
+});
 
 document.addEventListener("astro:page-load", () => {
   void onPageLoad();

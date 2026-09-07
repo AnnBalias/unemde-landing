@@ -2,11 +2,9 @@
 interface Props {
   src: string;
   motion: "a" | "b" | "solo";
-  aos?: string;
-  delay?: number;
 }
 
-const { src, motion, aos = "fade-up", delay } = Astro.props;
+const { src, motion } = Astro.props;
 const pos =
   motion === "solo"
     ? "top-[8%] right-[8%] left-auto z-20 w-[62%] max-sm:top-[6%] max-sm:left-1/2 max-sm:right-auto max-sm:w-[52%] max-sm:-translate-x-1/2"
@@ -21,7 +19,7 @@ const frame =
       : "-rotate-6 animate-float-a max-sm:-rotate-[4deg] motion-reduce:animate-none motion-reduce:-rotate-6";
 ---
 
-<div class={`phone-shot absolute ${pos}`} data-aos={aos} data-aos-delay={delay}>
+<div class={`phone-shot absolute ${pos}`}>
   <div
     class={`phone-shot-frame aspect-[9/19] w-full overflow-hidden border border-white/18 bg-[#101820] p-[3.6%] shadow-float ${frame}`}
   >
