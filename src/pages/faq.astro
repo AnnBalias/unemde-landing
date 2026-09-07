@@ -2,7 +2,7 @@
 import { TELEGRAM_URL } from "../data/contacts";
 import FaqItem from "../components/faq/FaqItem.astro";
 import Layout from "../layouts/Layout.astro";
-import { btnPrimary, chip, chipGreen, faqCta, lead, pageHero, pageHeroTitle, wrap } from "../lib/ui";
+import { btnPrimaryEnd, chip, chipGreen, faqBody, faqCta, faqTitle, lead, pageHero, pageHeroTitle, wrap } from "../lib/ui";
 
 const questions = [
   { cat: "general", q: "faq.q1", a: "faq.a1" },
@@ -43,11 +43,11 @@ const questions = [
         {questions.map((item) => <FaqItem q={item.q} a={item.a} cat={item.cat} />)}
         <article class={faqCta}>
           <div class="min-w-0">
-            <h3 class="text-base font-bold text-text" data-i18n="faq.moreTitle">Still have questions?</h3>
-            <p class="mt-3 text-sm leading-[21px] text-dark-gray" data-i18n="faq.moreSub"></p>
+            <h3 class={faqTitle} data-i18n="faq.moreTitle">Still have questions?</h3>
+            <p class={faqBody} data-i18n="faq.moreSub"></p>
           </div>
           <a
-            class={`${btnPrimary} shrink-0 self-end`}
+            class={btnPrimaryEnd}
             href={TELEGRAM_URL}
             target="_blank"
             rel="noreferrer"

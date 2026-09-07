@@ -1,4 +1,6 @@
 ---
+import { storeBadge } from "../../lib/ui";
+
 interface Props {
   class?: string;
 }
@@ -8,7 +10,7 @@ const { class: className = "" } = Astro.props;
 
 <div class:list={["mt-5 flex flex-wrap items-center justify-center gap-3", className]}>
   <a
-    class="inline-flex h-12 shrink-0 overflow-hidden rounded-[8px] outline-offset-2 transition duration-200 hover:-translate-y-px hover:shadow-card focus-visible:outline-2 focus-visible:outline-blue-light"
+    class={storeBadge}
     href="#download"
     data-i18n="guest.storeApp"
     data-i18n-attr="aria-label"
@@ -17,7 +19,7 @@ const { class: className = "" } = Astro.props;
     <img class="h-12 w-auto" src="/imgs/app-store.jpg" alt="" />
   </a>
   <a
-    class="inline-flex h-12 shrink-0 overflow-hidden rounded-[8px] outline-offset-2 transition duration-200 hover:-translate-y-px hover:shadow-card focus-visible:outline-2 focus-visible:outline-blue-light"
+    class={storeBadge}
     href="#download"
     data-i18n="guest.storePlay"
     data-i18n-attr="aria-label"

@@ -1,7 +1,7 @@
 ---
 import { NAV_LINKS, type PageId } from "../../i18n/config";
 import { LINKEDIN_URL } from "../../data/contacts";
-import { wrap } from "../../lib/ui";
+import { logoLink, wrap } from "../../lib/ui";
 import Logo from "./Logo.astro";
 
 interface Props {
@@ -14,7 +14,7 @@ const { page } = Astro.props;
 <footer class="bg-blue-dark pt-8 pb-4 text-[13px] text-white/82" id="stores">
   <div class={`${wrap} flex items-center justify-between gap-x-6 max-[600px]:items-start`}>
     <nav class="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-3 font-semibold max-[600px]:flex-col max-[600px]:items-start max-[600px]:gap-y-2.5">
-      <a class="flex shrink-0 items-center gap-2.5" href="/" aria-label="UNEMDE">
+      <a class={logoLink} href="/" aria-label="UNEMDE">
         <Logo gradId="footGrad" light />
       </a>
       {

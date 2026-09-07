@@ -1,5 +1,5 @@
 ---
-import { faqCard, faqItem } from "../../lib/ui";
+import { faqBody, faqCard, faqItem, faqTitle } from "../../lib/ui";
 
 interface Props {
   q: string;
@@ -15,8 +15,8 @@ const { q, a, open = false, cat, alwaysOpen = false } = Astro.props;
 {
   alwaysOpen ? (
     <article class={faqCard}>
-      <h3 class="text-base font-bold text-text" data-i18n={q}></h3>
-      <p class="mt-3 text-sm leading-[21px] text-dark-gray" data-i18n={a}></p>
+      <h3 class={faqTitle} data-i18n={q}></h3>
+      <p class={faqBody} data-i18n={a}></p>
     </article>
   ) : (
     <article
@@ -26,7 +26,7 @@ const { q, a, open = false, cat, alwaysOpen = false } = Astro.props;
       data-open={open || undefined}
     >
       <button class="flex w-full items-center justify-between gap-3 text-left" type="button">
-        <span class="text-base font-bold text-text" data-i18n={q} />
+        <span class={faqTitle} data-i18n={q} />
         <svg
           class="size-5 shrink-0 text-blue-dark transition-transform duration-200 group-data-[open]:rotate-180"
           viewBox="0 0 20 20"
@@ -41,7 +41,7 @@ const { q, a, open = false, cat, alwaysOpen = false } = Astro.props;
             stroke-linejoin="round"></path>
         </svg>
       </button>
-      <p class="mt-3 hidden text-sm leading-[21px] text-dark-gray group-data-[open]:block" data-i18n={a} />
+      <p class={`${faqBody} hidden group-data-[open]:block`} data-i18n={a} />
     </article>
   )
 }

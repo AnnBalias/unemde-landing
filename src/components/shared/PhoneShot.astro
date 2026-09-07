@@ -1,4 +1,6 @@
 ---
+import { shotImg } from "../../lib/ui";
+
 interface Props {
   src: string;
   motion: "a" | "b" | "solo";
@@ -24,7 +26,7 @@ const frame =
     class={`phone-shot-frame aspect-[9/19] w-full overflow-hidden border border-white/18 bg-[#101820] p-[3.6%] shadow-float ${frame}`}
   >
     <div class="phone-shot-screen h-full overflow-hidden bg-[#0e1728]">
-      <img class="h-full w-full object-cover object-top" src={src} alt="" />
+      <img class={shotImg} src={src} alt="" />
     </div>
   </div>
 </div>

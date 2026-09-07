@@ -3,44 +3,55 @@ import GuestJourney from "../components/guest/GuestJourney.astro";
 import StoreBadges from "../components/guest/StoreBadges.astro";
 import PhoneShot from "../components/shared/PhoneShot.astro";
 import Layout from "../layouts/Layout.astro";
-import { check, h2, hero, heroTitle, lead, phones, wrap } from "../lib/ui";
+import {
+  check,
+  checkList,
+  checkRow,
+  h2Flush,
+  hero,
+  heroTitle,
+  leadWide,
+  pageHeroGrid,
+  phonesSolo,
+  sectionJourney,
+  subMuted,
+  wrapCenter,
+} from "../lib/ui";
 ---
 
 <Layout page="guest">
   <section class={hero}>
-    <div
-      class={`${wrap} relative grid grid-cols-1 items-start gap-8 nav:grid-cols-[minmax(0,1.55fr)_minmax(11rem,0.45fr)] nav:gap-4`}
-    >
+    <div class={pageHeroGrid}>
       <div>
         <h1 class={heroTitle} data-i18n="guest.title">Local deals you can actually use.</h1>
-        <p class={`${lead} max-w-2xl`} data-i18n="guest.sub">
+        <p class={leadWide} data-i18n="guest.sub">
           Not a coupon catalogue for later. Each offer is tied to a time and place: book, arrive, activate.
         </p>
-        <ul class="mt-6 grid gap-2.5 text-[15px] font-medium">
-          <li class="flex items-center gap-2.5">
+        <ul class={checkList}>
+          <li class={checkRow}>
             <span class={check}>✓</span>
             <span data-i18n="guest.b1">Current</span>
           </li>
-          <li class="flex items-center gap-2.5">
+          <li class={checkRow}>
             <span class={check}>✓</span>
             <span data-i18n="guest.b2">Nearby</span>
           </li>
-          <li class="flex items-center gap-2.5">
+          <li class={checkRow}>
             <span class={check}>✓</span>
             <span data-i18n="guest.b3">Convenient</span>
           </li>
         </ul>
       </div>
-      <div class={`${phones} max-nav:mx-auto nav:ml-auto nav:mr-0`} aria-hidden="true">
+      <div class={phonesSolo} aria-hidden="true">
         <PhoneShot src="/imgs/unemde/u-loadscreen.jpg" motion="solo" />
       </div>
     </div>
   </section>
 
-  <section class="overflow-visible pt-10 pb-0">
-    <div class={`${wrap} text-center`}>
-      <h2 class={`${h2} mt-0`} data-i18n="guest.journeyTitle">How to use</h2>
-      <p class="mt-3 text-base text-dark-gray" data-i18n="guest.journeySub">
+  <section class={sectionJourney}>
+    <div class={wrapCenter}>
+      <h2 class={h2Flush} data-i18n="guest.journeyTitle">How to use</h2>
+      <p class={subMuted} data-i18n="guest.journeySub">
         Every screen a guest uses — from the first launch to the places they come back to.
       </p>
     </div>
@@ -48,8 +59,8 @@ import { check, h2, hero, heroTitle, lead, phones, wrap } from "../lib/ui";
   </section>
 
   <section class="pt-6 pb-10" id="download">
-    <div class={`${wrap} text-center`}>
-      <h2 class={`${h2} mt-0`} data-i18n="guest.storeTitle">Get the app</h2>
+    <div class={wrapCenter}>
+      <h2 class={h2Flush} data-i18n="guest.storeTitle">Get the app</h2>
       <StoreBadges />
     </div>
   </section>

@@ -1,4 +1,17 @@
 ---
+import {
+  howCaption,
+  howPad,
+  howRoot,
+  howScrim,
+  howScroll,
+  howShot,
+  howShotInner,
+  howStep,
+  howText,
+  shotImg,
+} from "../../lib/ui";
+
 export type JourneyStep = {
   t: string;
   p: string;
@@ -15,9 +28,9 @@ const { steps } = Astro.props;
 const track = steps.length * 230;
 ---
 
-<div class="mt-4 w-full">
-  <div class="how-journey-scroll w-full overflow-x-auto overscroll-x-contain" data-app-journey>
-    <div class="mx-auto mb-6 flex w-max px-8 pt-5 sm:px-12 nav:px-16" style={`min-width: ${track}px`}>
+<div class={howRoot}>
+  <div class={howScroll} data-app-journey>
+    <div class={`mx-auto mb-6 flex w-max ${howPad}`} style={`min-width: ${track}px`}>
       <ol
         class="m-0 grid list-none gap-5 p-0"
         style={`width: ${track}px; grid-template-columns: repeat(${steps.length}, minmax(0, 1fr))`}
@@ -25,25 +38,18 @@ const track = steps.length * 230;
         {
           steps.map((s) => (
             <li>
-              <article
-                class="how-step group relative aspect-[9/19] w-full cursor-pointer overflow-hidden rounded-[20px] border border-border bg-bg-soft pb-2 shadow-card transition duration-300 outline-none motion-reduce:transition-none"
-                data-how-step
-                tabindex="0"
-              >
-                <div class="how-step-shot absolute inset-x-[18%] top-2.5 bottom-[calc(32%+0.625rem)] overflow-hidden rounded-[16px] bg-[#101820] p-[5px] shadow-[0_8px_24px_rgb(16_24_40/0.18)] transition-all duration-500 ease-out motion-reduce:transition-none">
-                  <div class="how-step-shot-inner h-full overflow-hidden rounded-[12px]">
-                    <img class="h-full w-full object-cover object-top" src={s.shot} alt="" />
+              <article class={howStep} data-how-step tabindex="0">
+                <div class={`${howShot} bottom-[calc(32%+0.625rem)]`}>
+                  <div class={howShotInner}>
+                    <img class={shotImg} src={s.shot} alt="" />
                   </div>
                 </div>
-                <div
-                  class="how-step-scrim pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,transparent_0%,transparent_48%,rgb(15_24_42/0.45)_68%,rgb(15_24_42/0.9)_100%)] opacity-0 transition-opacity duration-500 motion-reduce:transition-none"
-                  aria-hidden="true"
-                />
-                <div class="how-step-caption absolute inset-x-0 bottom-0 z-10 flex min-h-[32%] flex-col justify-center bg-white px-4 py-3.5 text-text transition-all duration-500 motion-reduce:transition-none">
+                <div class={howScrim} aria-hidden="true" />
+                <div class={`${howCaption} min-h-[32%] px-4 py-3.5`}>
                   <h3 class="text-base leading-tight font-bold" data-i18n={s.t}>
                     {s.title}
                   </h3>
-                  <p class="how-step-text mt-1.5 line-clamp-3 text-xs leading-[1.35] text-dark-gray" data-i18n={s.p}>
+                  <p class={`${howText} text-xs leading-[1.35]`} data-i18n={s.p}>
                     {s.text}
                   </p>
                 </div>
@@ -55,69 +61,3 @@ const track = steps.length * 230;
     </div>
   </div>
 </div>
-
-<style>
-  .how-step {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .how-step:is(:hover, :focus, [data-open]) {
-    transform: translateY(-0.25rem);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .how-step:is(:hover, :focus, [data-open]) {
-      transform: none;
-    }
-  }
-
-  .how-step:is(:hover, :focus, [data-open]) .how-step-shot {
-    inset: 0;
-    border-radius: 20px;
-    padding: 0;
-    box-shadow: none;
-  }
-
-  .how-step:is(:hover, :focus, [data-open]) .how-step-shot-inner {
-    border-radius: 0;
-  }
-
-  .how-step:is(:hover, :focus, [data-open]) .how-step-scrim {
-    opacity: 1;
-  }
-
-  .how-step:is(:hover, :focus, [data-open]) .how-step-caption {
-    min-height: 0;
-    justify-content: flex-end;
-    background-color: transparent;
-    padding-top: 2.5rem;
-    padding-bottom: 0.875rem;
-    color: #fff;
-  }
-
-  .how-step:is(:hover, :focus, [data-open]) .how-step-text {
-    color: rgb(255 255 255 / 0.85);
-  }
-
-  .how-journey-scroll {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-blue-light) rgb(70 107 185 / 0.12);
-  }
-
-  .how-journey-scroll::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  .how-journey-scroll::-webkit-scrollbar-track {
-    background: rgb(70 107 185 / 0.12);
-  }
-
-  .how-journey-scroll::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, var(--color-blue-dark), var(--color-blue-light));
-    border-radius: 999px;
-  }
-
-  .how-journey-scroll::-webkit-scrollbar-thumb:hover {
-    background: var(--color-blue-mid);
-  }
-</style>
