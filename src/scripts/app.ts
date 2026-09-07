@@ -8,6 +8,7 @@ import { DEFAULT_LANG, LANGS, LANG_OPTIONS, type Lang } from "../i18n/config";
 
 let i18nReady = false;
 let listenersBound = false;
+let aosReady = false;
 
 function syncActiveNav() {
   const page = document.body.dataset.page;
@@ -343,14 +344,18 @@ async function onPageLoad() {
   bindListeners();
   initShotCarousels();
   initAppJourney();
-  AOS.init({
-    duration: 780,
-    easing: "ease-out-cubic",
-    offset: 72,
-    once: true,
-    disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  });
-  AOS.refreshHard();
+  if (!aosReady) {
+    AOS.init({
+      duration: 780,
+      easing: "ease-out-cubic",
+      offset: 72,
+      once: false,
+      disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    });
+    aosReady = true;
+  } else {
+    AOS.refreshHard();
+  }
   document.getElementById("nav")?.toggleAttribute("data-scrolled", window.scrollY > 8);
   const hashId = window.location.hash.slice(1);
   if (hashId) document.getElementById(hashId)?.scrollIntoView();
