@@ -2,17 +2,13 @@
   "meta": {
     "title": "UNEMDE",
     "description": "UNEMDE is an app for café and restaurant deals nearby. Book a slot and redeem with a QR code. UNEMDE Business is for venues.",
-    
     "guestTitle": "UNEMDE for guests",
     "guestDescription": "Find deals nearby, book a slot, and activate the discount in 30 minutes.",
-    
     "venueTitle": "UNEMDE Business for venues",
     "venueDescription": "Storefront, deals, QR scanner, and booking calendar for cafés and restaurants.",
-    
     "faqTitle": "UNEMDE — FAQ",
     "faqDescription": "Answers about deals, accounts, and UNEMDE partnership."
   },
-
   "nav": {
     "guests": "For guests",
     "business": "For venues",
@@ -21,54 +17,70 @@
     "menu": "Menu",
     "lang": "Language"
   },
-
   "hero": {
     "title": "Discover the best offers around you with UNEMDE",
     "lead": "Find discounts, partner places, and exclusive deals in cafés, restaurants, beauty, sport, and more — all in one mobile app.",
     "ctaGuest": "I’m a guest",
-    "ctaBiz": "I’m a venue",
-    "shotGuest": "UNEMDE — Discover",
-    "shotBiz": "UNEMDE Business — Scanner"
+    "ctaBiz": "I’m a venue"
   },
   "how": {
-    "kicker": "How it works",
-    "title": "Four steps from deal to table",
-    "sub": "One flow for guests and venues: find an offer, book a time, activate on-site, and get the discount.",
     "homeTitle": "From offer to enjoy",
-    "homeSub": "The venue sets the deal. The guest chooses, books, and arrives. The venue confirms — then it’s time to enjoy.",
-    "venue": "Venue",
-    "guest": "Guest",
-    "h1t": "Set the offer",
-    "h1p": "The venue publishes a deal in UNEMDE Business — what, when, and on what terms.",
     "h2t": "Choose",
     "h2p": "The guest finds the venue on the map or in the list and picks a deal that fits.",
     "h3t": "Book",
     "h3p": "A day and a time slot — the visit is planned, not a coupon for later.",
     "h4t": "Arrive",
     "h4p": "The guest shows up. The booking is ready to activate on-site.",
-    "h5t": "Confirm",
-    "h5p": "Staff scans the QR or the guest swipes. The deal is on for 30 minutes.",
     "h6t": "Enjoy",
-    "h6p": "The discount is applied. Dine in or takeaway — then save the venue for next time.",
-    "s1t": "Discover",
-    "s1p": "Venues nearby on a map or in a list. Filter by category, rating, and distance. Coffee, pizza, burgers, bowls, dürüm.",
-    "s2t": "Book",
-    "s2p": "Pick a day and time slot. The venue does not see the booking until the guest activates the deal. Reserve a table separately if needed.",
-    "s3t": "Activate",
-    "s3p": "On-site — swipe or show a QR to staff. After activation you have 30 minutes to use the deal before it expires.",
-    "s4t": "Enjoy",
-    "s4p": "Dine in or takeaway. Track savings in your profile, save favourites, and rate the visit."
+    "h6p": "The discount is applied. Dine in or takeaway — then save the venue for next time."
   },
-  "shots": {
-    "discover": "Discover",
-    "venue": "Venue",
-    "deals": "My Deals",
-    "scanner": "Scanner",
-    "calendar": "Calendar",
-    "edit": "Storefront"
+  "apps": {
+    "gTitle": "For guests",
+    "g1": "Sign in with a phone number",
+    "g2": "Map, filters, rating",
+    "g3": "30 minutes after activation",
+    "bTitle": "For venues",
+    "b1": "Camera for deal QR codes",
+    "b2": "Booking calendar",
+    "b3": "Logo and opening hours"
+  },
+  "home": {
+    "chooseTitle": "What we offer",
+    "more": "Learn more",
+    "partnerCta": "Become a partner",
+    "faqTitle": "Top questions",
+    "faqAll": "All questions",
+    "faqMoreTitle": "Didn’t find an answer?",
+    "faqMoreSub": "Browse all questions"
+  },
+  "partner": {
+    "title": "Grow your business with UNEMDE",
+    "sub": "Join local businesses already reaching new customers every day through our platform.",
+    "v1t": "More visibility",
+    "v1p": "Get featured in the app in front of thousands of active local users daily.",
+    "v2t": "Real analytics",
+    "v2p": "Track redemptions and bookings in UNEMDE Business — scanner, calendar, and stats.",
+    "v3t": "Free to start",
+    "v3p": "No setup fee. Pay only for the plan that fits your business size.",
+    "v4t": "Dedicated support",
+    "v4p": "Our partner team is available 7 days a week to help you grow.",
+    "reach": "Our partners",
+    "reachSub": "Local venues already growing with UNEMDE.",
+    "contactTitle": "Ready to join? Let’s talk.",
+    "contactSub": "Write to us on WhatsApp or Telegram — our partnership team replies within 24 hours.",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "s1n": "368+",
+    "s1t": "Active partner locations across the region",
+    "s2n": "50k+",
+    "s2t": "Monthly active users discovering deals"
+  },
+  "footer": {
+    "note": "Guests and venues · local deals · on-site activation",
+    "rights": "© 2026 UNEMDE",
+    "linkedin": "LinkedIn"
   },
   "guest": {
-    "kicker": "UNEMDE for guests",
     "title": "Local deals you can actually use.",
     "sub": "Not a coupon catalogue for later. Each offer is tied to a time and place: book, arrive, activate.",
     "b1": "Actual",
@@ -95,18 +107,10 @@
     "j9t": "Favourites",
     "j9p": "Heart a venue to find it later. Saved places and their live deals, ready for the next visit.",
     "storeTitle": "Get the app",
-    "storeSub": "UNEMDE for iOS and Android.",
     "storeApp": "Download on the App Store",
-    "storePlay": "Get it on Google Play",
-    "f1t": "Discover nearby",
-    "f1p": "List and map, search radius, city or GPS. Top picks near you and new deals.",
-    "f2t": "My Deals",
-    "f2p": "Booked and Reclaimed in separate tabs. Swipe to Activate or QR. Money saved in CZK on your profile.",
-    "f3t": "The venue, in-app",
-    "f3p": "Photos, hours, payment methods, reviews, directions and a call. Favourites in one tap."
+    "storePlay": "Get it on Google Play"
   },
   "biz": {
-    "kicker": "UNEMDE Business",
     "title": "Counter, calendar, and deals in one venue app",
     "sub": "Built for cafés, bakeries, and restaurants. Publish offers guests see in UNEMDE, then redeem them on-site with the scanner.",
     "b1": "Scanner",
@@ -121,54 +125,9 @@
     "j3t": "Booking calendar",
     "j3p": "Pick a day and see slots: available or booked with guest name and deal. Who is coming, and when.",
     "j4t": "Scan at the counter",
-    "j4p": "Allow the camera for the guest QR, or enter a code by hand. Activate — the discount runs until it expires.",
-    "f1t": "Edit — your storefront",
-    "f1p": "Name, photo, address, hours, payments. Create deals: 1+1, 30% off, coffee 2+1, quantity and terms.",
-    "f2t": "Scanner — home tab",
-    "f2p": "Camera on the guest QR or a manual code. Confirmation: deal is activated — the discount runs until it expires.",
-    "f3t": "Calendar and stats",
-    "f3p": "Day slots with guest name and deal label. Profile shows total deals and average bill.",
-    "st1": "Counter scanning instead of paper coupons",
-    "st2": "Deals booked by the guest for a specific time",
-    "st3": "Average bill and number of activated deals"
-  },
-  "apps": {
-    "kicker": "Two apps · one platform",
-    "title": "Choose your UNEMDE",
-    "sub": "The guest app finds and activates. The business app publishes and scans. Together they are a local-deals marketplace.",
-    "gTitle": "For guests",
-    "gText": "Discover, slot booking, QR / swipe, Reclaimed history, favourites, light and dark theme. Languages: UK, EN, CS, KK, RU.",
-    "g1": "Sign in with a phone number",
-    "g2": "Map, filters, rating",
-    "g3": "30 minutes after activation",
-    "gCta": "UNEMDE for iOS & Android",
-    "bTitle": "For venues",
-    "bText": "Register with an establishment name. Edit, Scanner, Calendar, Profile. Same design system: Sofia Pro and the blue gradient.",
-    "b1": "Camera for deal QR codes",
-    "b2": "Booking calendar",
-    "b3": "Logo and opening hours",
-    "bCta": "UNEMDE Business"
-  },
-  "home": {
-    "chooseKicker": "Choose a role",
-    "chooseTitle": "What we offer",
-    "chooseSub": "Two apps — one local-deals service.",
-    "more": "Learn more",
-    "partnerCta": "Become a partner",
-    "faqKicker": "FAQ",
-    "faqTitle": "Top questions",
-    "faqAll": "All questions",
-    "faqMoreTitle": "Didn’t find an answer?",
-    "faqMoreSub": "Browse all questions"
-  },
-  "cta": {
-    "title": "Ready to find a deal nearby?",
-    "sub": "UNEMDE is for people who eat in the city. UNEMDE Business is for the people who set the table.",
-    "g": "Open UNEMDE",
-    "b": "Open Business"
+    "j4p": "Allow the camera for the guest QR, or enter a code by hand. Activate — the discount runs until it expires."
   },
   "faq": {
-    "kicker": "FAQ",
     "title": "Frequently Asked Questions",
     "sub": "Everything you need to know about UNEMDE",
     "all": "All",
@@ -206,32 +165,5 @@
     "a12": "There’s no setup fee. Flexible monthly plans start from a small commission on redeemed deals.",
     "q13": "How do I track how many customers used my deal?",
     "a13": "UNEMDE Business gives you the scanner, booking calendar, and stats (total deals, average bill) in the venue profile."
-  },
-  "partner": {
-    "title": "Grow your business with UNEMDE",
-    "sub": "Join local businesses already reaching new customers every day through our platform.",
-    "v1t": "More visibility",
-    "v1p": "Get featured in the app in front of thousands of active local users daily.",
-    "v2t": "Real analytics",
-    "v2p": "Track redemptions and bookings in UNEMDE Business — scanner, calendar, and stats.",
-    "v3t": "Free to start",
-    "v3p": "No setup fee. Pay only for the plan that fits your business size.",
-    "v4t": "Dedicated support",
-    "v4p": "Our partner team is available 7 days a week to help you grow.",
-    "reach": "Our partners",
-    "reachSub": "Local venues already growing with UNEMDE.",
-    "contactTitle": "Ready to join? Let’s talk.",
-    "contactSub": "Write to us on WhatsApp or Telegram — our partnership team replies within 24 hours.",
-    "whatsapp": "WhatsApp",
-    "telegram": "Telegram",
-    "s1n": "368+",
-    "s1t": "Active partner locations across the region",
-    "s2n": "50k+",
-    "s2t": "Monthly active users discovering deals"
-  },
-  "footer": {
-    "note": "Guests and venues · local deals · on-site activation",
-    "rights": "© 2026 UNEMDE",
-    "linkedin": "LinkedIn"
   }
 }
