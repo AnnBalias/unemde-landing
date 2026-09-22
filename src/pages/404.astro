@@ -1,0 +1,17 @@
+---
+if (import.meta.env.DEV) {
+  return Astro.redirect("/");
+}
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/" />
+    <link rel="canonical" href="/" />
+    <meta name="robots" content="noindex" />
+    <title>UNEMDE</title>
+    <script is:inline>location.replace("/");</script>
+  </head>
+  <body></body>
+</html>

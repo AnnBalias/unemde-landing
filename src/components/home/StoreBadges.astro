@@ -5,14 +5,14 @@ interface Props {
   class?: string;
 }
 
-const { class: className = "" } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
-<div class:list={["mt-5 flex flex-wrap items-center justify-center gap-3", className]}>
+<div class:list={["flex flex-wrap items-center gap-3", className ?? "mt-5 justify-center"]}>
   <a
     class={storeBadge}
     href="#download"
-    data-i18n="guest.storeApp"
+    data-i18n="home.storeApp"
     data-i18n-attr="aria-label"
     aria-label="Download on the App Store"
   >
@@ -21,7 +21,7 @@ const { class: className = "" } = Astro.props;
   <a
     class={storeBadge}
     href="#download"
-    data-i18n="guest.storePlay"
+    data-i18n="home.storePlay"
     data-i18n-attr="aria-label"
     aria-label="Get it on Google Play"
   >

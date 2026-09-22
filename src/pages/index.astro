@@ -1,5 +1,6 @@
 ---
 import FaqItem from "../components/faq/FaqItem.astro";
+import StoreBadges from "../components/home/StoreBadges.astro";
 import HowJourney from "../components/home/HowJourney.astro";
 import ShotCarousel from "../components/home/ShotCarousel.astro";
 import PhoneShot from "../components/shared/PhoneShot.astro";
@@ -19,7 +20,6 @@ import {
   btnGhost,
   btnGreen,
   btnOnDark,
-  btnPrimary,
   btnPrimaryEnd,
   check,
   checkList,
@@ -69,7 +69,7 @@ const venueShots = [
           slot, and redeem on-site. Venues manage offers and scan QR codes in UNEMDE Business.
         </p>
         <div class={heroCta}>
-          <a class={btnGhost} href="/guest" data-i18n="hero.ctaGuest">I’m a guest</a>
+          <a class={btnGhost} href="#how" data-i18n="hero.ctaGuest">I’m a guest</a>
           <a class={btnOnDark} href="/venue" data-i18n="hero.ctaBiz">I’m a venue</a>
         </div>
       </div>
@@ -80,7 +80,7 @@ const venueShots = [
     </div>
   </section>
 
-  <section class={sectionJourney} id="how">
+  <section class={`${sectionJourney} scroll-mt-[72px]`} id="how">
     <div class={wrapCenter}>
       <h2 class={h2Flush} data-i18n="how.homeTitle">From offer to enjoy</h2>
     </div>
@@ -89,7 +89,7 @@ const venueShots = [
 
   <section class="overflow-visible pt-6 pb-3">
     <div class={wrapCenter}>
-      <h2 class={h2Flush} data-i18n="home.chooseTitle">What we offer</h2>
+      <h2 class={`${h2Flush} scroll-mt-[72px]`} id="offer" data-i18n="home.chooseTitle">What we offer</h2>
     </div>
     <div class={`${wrap} ${apps}`}>
       <article class={appCard}>
@@ -110,8 +110,8 @@ const venueShots = [
               <span data-i18n="apps.g3"></span>
             </li>
           </ul>
-          <div class={appCardFoot}>
-            <a class={btnPrimary} href="/guest" data-i18n="home.more">Learn more</a>
+          <div class={appCardFoot} id="download">
+            <StoreBadges class="mt-0 justify-start" />
           </div>
         </div>
         <ShotCarousel shots={guestShots} />

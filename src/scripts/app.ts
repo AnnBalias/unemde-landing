@@ -1,4 +1,5 @@
 import AOS from "aos";
+import { navigate } from "astro:transitions/client";
 import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import en from "../i18n/locales/en.json";
@@ -9,6 +10,7 @@ import { DEFAULT_LANG, LANGS, LANG_OPTIONS, type Lang } from "../i18n/config";
 let i18nReady = false;
 let listenersBound = false;
 let aosReady = false;
+let pendingScrollId = "";
 const journeyTimers: number[] = [];
 const shotTimers: number[] = [];
 
@@ -205,9 +207,68 @@ async function ensureI18n() {
   i18nReady = true;
 }
 
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function navOffset() {
+  return (document.getElementById("nav")?.getBoundingClientRect().height ?? 60) + 12;
+}
+
+function scrollToId(id: string, smooth = true) {
+  const el = document.getElementById(id);
+  if (!el) return false;
+  const top = Math.max(0, window.scrollY + el.getBoundingClientRect().top - navOffset());
+  window.scrollTo({
+    top,
+    behavior: smooth && !prefersReducedMotion() ? "smooth" : "instant",
+  });
+  return true;
+}
+
+function scrollToPendingHash(smooth = false) {
+  const id = window.location.hash.slice(1) || pendingScrollId;
+  pendingScrollId = "";
+  if (!id) return;
+  if (id && !window.location.hash) history.replaceState(null, "", `#${id}`);
+  scrollToId(id, smooth);
+  requestAnimationFrame(() => scrollToId(id, false));
+}
+
 function bindListeners() {
   if (listenersBound) return;
   listenersBound = true;
+
+  document.addEventListener(
+    "click",
+    (event) => {
+      const link = (event.target as HTMLElement | null)?.closest("a[href]");
+      if (!(link instanceof HTMLAnchorElement) || event.defaultPrevented || event.button !== 0) return;
+      if (link.target && link.target !== "_self") return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin || !url.hash) return;
+      const id = decodeURIComponent(url.hash.slice(1));
+      if (!id) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      closeNavMenu();
+
+      const onThisPage = document.getElementById(id);
+      if (onThisPage && url.pathname === window.location.pathname) {
+        history.pushState(null, "", url.hash);
+        scrollToId(id);
+        return;
+      }
+
+      pendingScrollId = id;
+      const dest =
+        url.pathname === window.location.pathname ? `/${url.hash}` : `${url.pathname}${url.hash}`;
+      void navigate(dest);
+    },
+    true,
+  );
 
   document.addEventListener("click", (event) => {
     const target = event.target as HTMLElement | null;
@@ -357,8 +418,7 @@ async function onPageLoad() {
     AOS.refreshHard();
   }
   document.getElementById("nav")?.toggleAttribute("data-scrolled", window.scrollY > 8);
-  const hashId = window.location.hash.slice(1);
-  if (hashId) document.getElementById(hashId)?.scrollIntoView();
+  scrollToPendingHash(false);
 }
 
 document.addEventListener("astro:before-swap", () => {
