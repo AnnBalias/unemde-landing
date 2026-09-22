@@ -88,13 +88,13 @@
     "journeyTitle": "How to use",
     "journeySub": "Every venue screen — from sign-in to scanning a guest at the counter.",
     "j1t": "Sign in",
-    "j1p": "Enter your phone number and confirm the code. New venues register through Sign Up.",
+    "j1p": "Enter your phone number and confirm the code.",
     "j2t": "Venue storefront",
-    "j2p": "Name, photo, address, hours, payments. Deals: 1+1, −30%, coffee 2+1, quantity and terms.",
+    "j2p": "Name, photo, address, hours, payments, menu. Deals: 1+1, -30%, 2+1, quantity and terms.",
     "j3t": "Booking calendar",
-    "j3p": "Pick a day and see the slots: available, or with a guest name and deal title. Who is coming, and when.",
+    "j3p": "Pick a day and see the slots: who is coming, and when.",
     "j4t": "Scanner at the counter",
-    "j4p": "Camera on the guest QR, or enter the code by hand. Activate — the discount runs until it expires."
+    "j4p": "Scan the QR code, enter the code by hand, or specify the time of activation."
   },
   "faq": {
     "title": "Frequently asked questions",
