@@ -1,0 +1,188 @@
+---
+import { PRIVACY_POLICY, type PolicyLang } from "../data/privacy-policy";
+import { PAGE_META } from "../i18n/config";
+
+const langs = Object.keys(PRIVACY_POLICY) as PolicyLang[];
+const meta = PAGE_META.policy;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Политика конфиденциальности — UNEMDE</title>
+    <meta name="description" content="Политика конфиденциальности мобильного приложения Unemde." />
+    <link rel="icon" type="image/png" href="/icon.png?v=2" />
+    <style is:global>
+      body {
+        font-family: sans-serif;
+        max-width: 720px;
+        margin: 1.5em auto;
+        padding: 0 1em 2em;
+        line-height: 1.5;
+        color: #111;
+      }
+      h1 {
+        font-size: 1.5em;
+        margin: 0 0 0.25em;
+      }
+      h2 {
+        font-size: 1.15em;
+        margin: 1.5em 0 0.5em;
+      }
+      p,
+      ul {
+        margin: 0.6em 0;
+      }
+      ul {
+        padding-left: 1.4em;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.75em 0;
+        font-size: 0.95em;
+      }
+      th,
+      td {
+        border: 1px solid #999;
+        padding: 0.35em 0.5em;
+        text-align: left;
+        vertical-align: top;
+      }
+      .lang-switch {
+        display: flex;
+        gap: 0.4em;
+        margin-bottom: 1.25em;
+      }
+      .lang-switch button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 36px;
+        min-width: 48px;
+        padding: 0 0.85em;
+        border: 1px solid #eeeeee;
+        border-radius: 22px;
+        background: #f6f8fb;
+        color: #1f3053;
+        font: 700 12px/1 "Segoe UI", sans-serif;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+      }
+      .lang-switch button:hover {
+        border-color: #d8dee8;
+        background: rgb(70 107 185 / 0.08);
+      }
+      .lang-switch button[aria-selected="true"] {
+        border-color: transparent;
+        background: #1f3053;
+        color: #fff;
+      }
+      .lang-switch button:focus-visible {
+        outline: 2px solid #456bb9;
+        outline-offset: 2px;
+      }
+      .revised {
+        color: #444;
+        font-size: 0.95em;
+        margin-bottom: 1.25em;
+      }
+    </style>
+  </head>
+  <body data-title-key={meta.titleKey} data-desc-key={meta.descKey}>
+    <div class="lang-switch" role="listbox" aria-label="Language">
+      <button type="button" data-lang="ru" role="option" aria-selected="true">RU</button>
+      <button type="button" data-lang="kk" role="option" aria-selected="false">KK</button>
+    </div>
+
+    {
+      langs.map((lang) => {
+        const doc = PRIVACY_POLICY[lang];
+        return (
+          <article data-policy-lang={lang} hidden={lang !== "ru"}>
+            <h1>{doc.title}</h1>
+            <p class="revised">{doc.revised}</p>
+
+            {doc.sections.map((section) => (
+              <section>
+                <h2>{section.title}</h2>
+                {section.blocks.map((block) => {
+                  if (block.type === "p" || block.type === "note") {
+                    return <p>{block.text}</p>;
+                  }
+                  if (block.type === "ul") {
+                    return (
+                      <ul>
+                        {block.items.map((item) => (
+                          <li>{item}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  return (
+                    <table>
+                      <thead>
+                        <tr>
+                          {block.headers.map((header) => (
+                            <th>{header}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {block.rows.map((row) => (
+                          <tr>
+                            {row.map((cell) => (
+                              <td>{cell}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  );
+                })}
+              </section>
+            ))}
+          </article>
+        );
+      })
+    }
+
+    <script is:inline>
+      (function () {
+        var titles = {
+          ru: "Политика конфиденциальности — UNEMDE",
+          kk: "Құпиялылық саясаты — UNEMDE",
+        };
+
+        function setLang(lang) {
+          var active = lang === "kk" ? "kk" : "ru";
+          document.documentElement.lang = active;
+          document.title = titles[active];
+          document.querySelectorAll("[data-policy-lang]").forEach(function (el) {
+            el.hidden = el.getAttribute("data-policy-lang") !== active;
+          });
+          document.querySelectorAll("[data-lang]").forEach(function (btn) {
+            btn.setAttribute("aria-selected", String(btn.getAttribute("data-lang") === active));
+          });
+          try {
+            localStorage.setItem("i18nextLng", active);
+          } catch (e) {}
+        }
+
+        var saved = "ru";
+        try {
+          saved = localStorage.getItem("i18nextLng") || "ru";
+        } catch (e) {}
+        setLang(saved === "kk" ? "kk" : "ru");
+
+        document.querySelectorAll("[data-lang]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            setLang(btn.getAttribute("data-lang") || "ru");
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

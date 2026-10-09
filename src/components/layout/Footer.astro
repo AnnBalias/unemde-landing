@@ -1,5 +1,5 @@
 ---
-import { NAV_LINKS, type PageId } from "../../i18n/config";
+import { NAV_LINKS, SITE_PUBLIC_ONLY, type PageId } from "../../i18n/config";
 import { LINKEDIN_URL } from "../../data/contacts";
 import { logoLink, wrap } from "../../lib/ui";
 import Logo from "./Logo.astro";
@@ -9,25 +9,27 @@ interface Props {
 }
 
 const { page } = Astro.props;
+const homeHref = SITE_PUBLIC_ONLY ? "/private-policy" : "/";
 ---
 
 <footer class="bg-blue-dark pt-8 pb-4 text-[13px] text-white/82" id="stores">
   <div class={`${wrap} flex items-center justify-between gap-x-6 max-[600px]:items-start`}>
     <nav class="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-3 font-semibold max-[600px]:flex-col max-[600px]:items-start max-[600px]:gap-y-2.5">
-      <a class={logoLink} href="/" aria-label="UNEMDE">
+      <a class={logoLink} href={homeHref} aria-label="UNEMDE">
         <Logo gradId="footGrad" light />
       </a>
       {
-        NAV_LINKS.map((item) => (
-          <a
-            class="hover:text-white aria-[current=page]:text-white"
-            href={item.href}
-            aria-current={page === item.page ? "page" : undefined}
-            data-i18n={item.key}
-          >
-            {item.label}
-          </a>
-        ))
+        !SITE_PUBLIC_ONLY &&
+          NAV_LINKS.map((item) => (
+            <a
+              class="hover:text-white aria-[current=page]:text-white"
+              href={item.href}
+              aria-current={page === item.page ? "page" : undefined}
+              data-i18n={item.key}
+            >
+              {item.label}
+            </a>
+          ))
       }
     </nav>
     <a

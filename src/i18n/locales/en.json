@@ -5,7 +5,13 @@
     "venueTitle": "UNEMDE",
     "venueDescription": "Storefront, deals, QR scanner, and booking calendar for cafés and restaurants.",
     "faqTitle": "UNEMDE",
-    "faqDescription": "Answers about deals, accounts, and UNEMDE partnership."
+    "faqDescription": "Answers about deals, accounts, and UNEMDE partnership.",
+    "policyTitle": "Privacy Policy — UNEMDE",
+    "policyDescription": "Privacy policy of the Unemde mobile application."
+  },
+  "policy": {
+    "title": "Privacy Policy",
+    "sub": "How Unemde collects, stores, and protects personal data. Full text available in Russian and Kazakh."
   },
   "nav": {
     "business": "For venues",

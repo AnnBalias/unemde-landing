@@ -5,7 +5,9 @@ export default defineConfig({
   output: "static",
   trailingSlash: "never",
   redirects: {
-    "/guest": "/",
+    "/guest": "/private-policy",
+    "/faq": "/private-policy",
+    "/venue": "/private-policy",
   },
   vite: {
     plugins: [tailwindcss()],

@@ -8,8 +8,11 @@ export const LANG_OPTIONS: { value: Lang; label: string }[] = [
   { value: "en", label: "EN" },
 ];
 
-export const PAGES = ["home", "venue", "faq"] as const;
+export const PAGES = ["home", "venue", "faq", "policy"] as const;
 export type PageId = (typeof PAGES)[number];
+
+/** Landing routes are temporarily hidden; only /private-policy is public. */
+export const SITE_PUBLIC_ONLY = true as const;
 
 export const NAV_LINKS = [
   { href: "/venue", key: "nav.business", page: "venue", label: "For venues" },
@@ -20,4 +23,5 @@ export const PAGE_META: Record<PageId, { titleKey: string; descKey: string }> = 
   home: { titleKey: "meta.title", descKey: "meta.description" },
   venue: { titleKey: "meta.venueTitle", descKey: "meta.venueDescription" },
   faq: { titleKey: "meta.faqTitle", descKey: "meta.faqDescription" },
+  policy: { titleKey: "meta.policyTitle", descKey: "meta.policyDescription" },
 };

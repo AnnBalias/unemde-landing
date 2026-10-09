@@ -1,0 +1,193 @@
+---
+import FaqItem from "../components/faq/FaqItem.astro";
+import StoreBadges from "../components/home/StoreBadges.astro";
+import HowJourney from "../components/home/HowJourney.astro";
+import ShotCarousel from "../components/home/ShotCarousel.astro";
+import PhoneShot from "../components/shared/PhoneShot.astro";
+import Layout from "../layouts/Layout.astro";
+import {
+  appCard,
+  appCardAlt,
+  appCardFoot,
+  appCol,
+  apps,
+  badge,
+  badgeAlt,
+  benefitGlass,
+  benefitText,
+  benefitTitle,
+  benefits,
+  btnGhost,
+  btnGreen,
+  btnOnDark,
+  btnPrimaryEnd,
+  check,
+  checkList,
+  checkRowStart,
+  faqBody,
+  faqCta,
+  faqTitle,
+  h2Flush,
+  hero,
+  heroCta,
+  heroGrid,
+  heroTitle,
+  lead,
+  phones,
+  sectionBrand,
+  sectionCta,
+  sectionJourney,
+  subOnNavy,
+  wrap,
+  wrapCenter,
+  wrapPad,
+} from "../lib/ui";
+
+const guestShots = [
+  "/imgs/unemde/u-loadscreen.jpg",
+  "/imgs/unemde/u-mainpage-l.jpg",
+  "/imgs/unemde/u-restaurantpage-l.jpg",
+  "/imgs/unemde/u-mydeals-l.jpg",
+  "/imgs/unemde/u-rating-l.jpg",
+];
+
+const venueShots = [
+  "/imgs/unemde-business/ub-loadscreen.jpg",
+  "/imgs/unemde-business/ub-restaurantdetails-l.jpg",
+  "/imgs/unemde-business/ub-bookingcalendar-l.jpg",
+  "/imgs/unemde-business/ub-scanner-l.jpg",
+];
+---
+
+<Layout page="home">
+  <section class={hero}>
+    <div class={`${wrap} ${heroGrid}`}>
+      <div>
+        <h1 class={heroTitle} data-i18n="hero.title">Find your deal!</h1>
+        <p class={lead} data-i18n="hero.lead">
+          UNEMDE is a mobile marketplace for local café and restaurant deals. Guests find a venue on the map, book a
+          slot, and redeem on-site. Venues manage offers and scan QR codes in UNEMDE Business.
+        </p>
+        <div class={heroCta}>
+          <a class={btnGhost} href="#how" data-i18n="hero.ctaGuest">I’m a guest</a>
+          <a class={btnOnDark} href="/venue" data-i18n="hero.ctaBiz">I’m a venue</a>
+        </div>
+      </div>
+      <div class={phones} aria-hidden="true">
+        <PhoneShot src="/imgs/unemde/u-mainpage-l.jpg" motion="a" />
+        <PhoneShot src="/imgs/unemde-business/ub-scanner-l.jpg" motion="b" />
+      </div>
+    </div>
+  </section>
+
+  <section class={`${sectionJourney} scroll-mt-[72px]`} id="how">
+    <div class={wrapCenter}>
+      <h2 class={h2Flush} data-i18n="how.homeTitle">From offer to enjoy</h2>
+    </div>
+    <HowJourney />
+  </section>
+
+  <section class="overflow-visible pt-6 pb-3">
+    <div class={wrapCenter}>
+      <h2 class={`${h2Flush} scroll-mt-[72px]`} id="offer" data-i18n="home.chooseTitle">What we offer</h2>
+    </div>
+    <div class={`${wrap} ${apps}`}>
+      <article class={appCard}>
+        <div class={appCol}>
+          <h3 class="text-2xl font-bold">UNEMDE</h3>
+          <span class={`${badge} mt-3 w-fit`} data-i18n="apps.gTitle">For guests</span>
+          <ul class={checkList}>
+            <li class={checkRowStart}>
+              <span class={check}>✓</span>
+              <span data-i18n="apps.g1"></span>
+            </li>
+            <li class={checkRowStart}>
+              <span class={check}>✓</span>
+              <span data-i18n="apps.g2"></span>
+            </li>
+            <li class={checkRowStart}>
+              <span class={check}>✓</span>
+              <span data-i18n="apps.g3"></span>
+            </li>
+          </ul>
+          <div class={appCardFoot} id="download">
+            <StoreBadges class="mt-0 justify-start" />
+          </div>
+        </div>
+        <ShotCarousel shots={guestShots} />
+      </article>
+      <article class={appCardAlt}>
+        <div class={appCol}>
+          <h3 class="text-2xl font-bold">UNEMDE Business</h3>
+          <span class={`${badgeAlt} mt-3 w-fit`} data-i18n="apps.bTitle">For venues</span>
+          <ul class={checkList}>
+            <li class={checkRowStart}>
+              <span class={check}>✓</span>
+              <span data-i18n="apps.b1"></span>
+            </li>
+            <li class={checkRowStart}>
+              <span class={check}>✓</span>
+              <span data-i18n="apps.b2"></span>
+            </li>
+            <li class={checkRowStart}>
+              <span class={check}>✓</span>
+              <span data-i18n="apps.b3"></span>
+            </li>
+          </ul>
+          <div class={appCardFoot}>
+            <a class={btnGhost} href="/venue" data-i18n="home.more">Learn more</a>
+          </div>
+        </div>
+        <ShotCarousel shots={venueShots} alt />
+      </article>
+    </div>
+  </section>
+
+  <section class={sectionBrand}>
+    <div class={wrapPad}>
+      <h2 class={h2Flush} data-i18n="partner.title">Grow your business with UNEMDE</h2>
+      <p class={subOnNavy} data-i18n="partner.sub">
+        Join local businesses already reaching new customers every day through our platform.
+      </p>
+      <div class={benefits}>
+        <article class={benefitGlass} data-aos="fade-up">
+          <h3 class={benefitTitle} data-i18n="partner.v1t"></h3>
+          <p class={benefitText} data-i18n="partner.v1p"></p>
+        </article>
+        <article class={benefitGlass} data-aos="fade-up" data-aos-delay="80">
+          <h3 class={benefitTitle} data-i18n="partner.v2t"></h3>
+          <p class={benefitText} data-i18n="partner.v2p"></p>
+        </article>
+        <article class={benefitGlass} data-aos="fade-up" data-aos-delay="160">
+          <h3 class={benefitTitle} data-i18n="partner.v3t"></h3>
+          <p class={benefitText} data-i18n="partner.v3p"></p>
+        </article>
+        <article class={benefitGlass} data-aos="fade-up" data-aos-delay="240">
+          <h3 class={benefitTitle} data-i18n="partner.v4t"></h3>
+          <p class={benefitText} data-i18n="partner.v4p"></p>
+        </article>
+      </div>
+      <div class={sectionCta}>
+        <a class={btnGreen} href="/venue#partner-contact" data-i18n="home.partnerCta">Become a partner</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="overflow-visible pt-10 pb-16">
+    <div class={wrapCenter}>
+      <h2 class={h2Flush} data-i18n="home.faqTitle">Top questions</h2>
+    </div>
+    <div class={`${wrap} ${apps}`}>
+      <FaqItem q="faq.q1" a="faq.a1" alwaysOpen />
+      <FaqItem q="faq.q4" a="faq.a4" alwaysOpen />
+      <FaqItem q="faq.q11" a="faq.a11" alwaysOpen />
+      <article class={faqCta}>
+        <div class="min-w-0">
+          <h3 class={faqTitle} data-i18n="home.faqMoreTitle">Didn’t find an answer?</h3>
+          <p class={faqBody} data-i18n="home.faqMoreSub">Browse all questions</p>
+        </div>
+        <a class={btnPrimaryEnd} href="/faq" data-i18n="home.faqAll">All questions</a>
+      </article>
+    </div>
+  </section>
+</Layout>
